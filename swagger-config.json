@@ -1,0 +1,15 @@
+{
+	"sortParamsByRequiredFlag": true,
+	"ensureUniqueParams": true,
+	"allowUnicodeIdentifiers": false,
+	"modelPackage": "Model",
+	"apiPackage": "Api",
+	"variableNamingConvention": "camelCase",
+	"invokerPackage": "ChannelEngine\\Channel\\ApiClient",
+	"packagePath": "",
+	"composerVendorName": "channelengine",
+	"gitUserId": "channelengine",
+	"composerProjectName": "channel-api-client-php",
+	"gitRepoId": "channel-api-client-php",
+	"hideGenerationTimestamp": true
+}
