@@ -230,7 +230,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelProductNo
      *
-     * @param string $channelProductNo channelProductNo
+     * @param string $channelProductNo The unique product reference used by the Channel
      *
      * @return $this
      */

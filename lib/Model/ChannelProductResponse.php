@@ -445,7 +445,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets parentChannelProductNo
      *
-     * @param string $parentChannelProductNo parentChannelProductNo
+     * @param string $parentChannelProductNo The unique product reference used by the Channel for the parent product
      *
      * @return $this
      */
@@ -493,7 +493,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name The name of the product
      *
      * @return $this
      */
@@ -517,7 +517,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets description
      *
-     * @param string $description description
+     * @param string $description A description of the product
      *
      * @return $this
      */
@@ -541,7 +541,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets brand
      *
-     * @param string $brand brand
+     * @param string $brand The brand of the product
      *
      * @return $this
      */
@@ -565,7 +565,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets size
      *
-     * @param string $size size
+     * @param string $size Optional. The size of the product (variant). E.g. fashion size (S-XL, 46-56, etc), width of the watch, etc..
      *
      * @return $this
      */
@@ -589,7 +589,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets color
      *
-     * @param string $color color
+     * @param string $color Optional. The color of the product (variant).
      *
      * @return $this
      */
@@ -613,7 +613,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets ean
      *
-     * @param string $ean ean
+     * @param string $ean The EAN of GTIN of the product
      *
      * @return $this
      */
@@ -637,7 +637,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets manufacturerProductNumber
      *
-     * @param string $manufacturerProductNumber manufacturerProductNumber
+     * @param string $manufacturerProductNumber The unique product reference used by the manufacturer/vendor of the product
      *
      * @return $this
      */
@@ -661,7 +661,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets stock
      *
-     * @param int $stock stock
+     * @param int $stock The number of items in stock
      *
      * @return $this
      */
@@ -733,7 +733,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets purchasePrice
      *
-     * @param double $purchasePrice purchasePrice
+     * @param double $purchasePrice Optional. The purchase price of the product. Useful for repricing.
      *
      * @return $this
      */
@@ -790,7 +790,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets shippingCost
      *
-     * @param double $shippingCost shippingCost
+     * @param double $shippingCost Shipping cost of the product.
      *
      * @return $this
      */
@@ -886,7 +886,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl1
      *
-     * @param string $extraImageUrl1 extraImageUrl1
+     * @param string $extraImageUrl1 Url to an additional image of product (1)
      *
      * @return $this
      */
@@ -910,7 +910,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl2
      *
-     * @param string $extraImageUrl2 extraImageUrl2
+     * @param string $extraImageUrl2 Url to an additional image of product (2)
      *
      * @return $this
      */
@@ -934,7 +934,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl3
      *
-     * @param string $extraImageUrl3 extraImageUrl3
+     * @param string $extraImageUrl3 Url to an additional image of product (3)
      *
      * @return $this
      */
@@ -958,7 +958,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl4
      *
-     * @param string $extraImageUrl4 extraImageUrl4
+     * @param string $extraImageUrl4 Url to an additional image of product (4)
      *
      * @return $this
      */
@@ -982,7 +982,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl5
      *
-     * @param string $extraImageUrl5 extraImageUrl5
+     * @param string $extraImageUrl5 Url to an additional image of product (5)
      *
      * @return $this
      */
@@ -1006,7 +1006,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl6
      *
-     * @param string $extraImageUrl6 extraImageUrl6
+     * @param string $extraImageUrl6 Url to an additional image of product (6)
      *
      * @return $this
      */
@@ -1030,7 +1030,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl7
      *
-     * @param string $extraImageUrl7 extraImageUrl7
+     * @param string $extraImageUrl7 Url to an additional image of product (7)
      *
      * @return $this
      */
@@ -1054,7 +1054,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl8
      *
-     * @param string $extraImageUrl8 extraImageUrl8
+     * @param string $extraImageUrl8 Url to an additional image of product (8)
      *
      * @return $this
      */
@@ -1078,7 +1078,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     /**
      * Sets extraImageUrl9
      *
-     * @param string $extraImageUrl9 extraImageUrl9
+     * @param string $extraImageUrl9 Url to an additional image of product (9)
      *
      * @return $this
      */

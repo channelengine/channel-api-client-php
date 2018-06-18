@@ -329,7 +329,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets channelProductNo
      *
-     * @param string $channelProductNo channelProductNo
+     * @param string $channelProductNo The unique order reference used by the channel
      *
      * @return $this
      */
@@ -360,7 +360,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity quantity
+     * @param int $quantity The number of items of the product
      *
      * @return $this
      */

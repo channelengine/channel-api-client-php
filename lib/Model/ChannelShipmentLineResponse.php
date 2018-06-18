@@ -236,7 +236,7 @@ class ChannelShipmentLineResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelProductNo
      *
-     * @param string $channelProductNo channelProductNo
+     * @param string $channelProductNo The unique product reference used by the Channel
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class ChannelShipmentLineResponse implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity quantity
+     * @param int $quantity Number of items of the product in the shipment
      *
      * @return $this
      */

@@ -283,7 +283,7 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelOrderNo
      *
-     * @param string $channelOrderNo channelOrderNo
+     * @param string $channelOrderNo The unique order reference used by the Channel
      *
      * @return $this
      */
@@ -331,7 +331,7 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string $reason Reason for cancellation (text)
      *
      * @return $this
      */
@@ -355,7 +355,7 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     /**
      * Sets reasonCode
      *
-     * @param string $reasonCode reasonCode
+     * @param string $reasonCode Reason code for cancellation
      *
      * @return $this
      */

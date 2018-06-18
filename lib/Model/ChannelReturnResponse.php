@@ -353,7 +353,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelReturnNo
      *
-     * @param string $channelReturnNo channelReturnNo
+     * @param string $channelReturnNo The unique return reference used by the Channel
      *
      * @return $this
      */
@@ -377,7 +377,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelOrderNo
      *
-     * @param string $channelOrderNo channelOrderNo
+     * @param string $channelOrderNo The unique order reference used by the Channel
      *
      * @return $this
      */
@@ -425,7 +425,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets id
      *
-     * @param int $id id
+     * @param int $id The unique return reference used by ChannelEngine
      *
      * @return $this
      */
@@ -449,7 +449,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets reason
      *
-     * @param string $reason reason
+     * @param string $reason The reason code of the return
      *
      * @return $this
      */
@@ -482,7 +482,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets customerComment
      *
-     * @param string $customerComment customerComment
+     * @param string $customerComment Optional. Comment of customer on the (reason of) the return
      *
      * @return $this
      */
@@ -513,7 +513,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets merchantComment
      *
-     * @param string $merchantComment merchantComment
+     * @param string $merchantComment Optional. Comment of merchant on the return.
      *
      * @return $this
      */
@@ -544,7 +544,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets refundInclVat
      *
-     * @param double $refundInclVat refundInclVat
+     * @param double $refundInclVat Refund amount incl. VAT
      *
      * @return $this
      */
@@ -568,7 +568,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     /**
      * Sets refundExclVat
      *
-     * @param double $refundExclVat refundExclVat
+     * @param double $refundExclVat Refund amount excl. VAT
      *
      * @return $this
      */

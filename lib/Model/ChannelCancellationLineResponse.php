@@ -236,7 +236,7 @@ class ChannelCancellationLineResponse implements ModelInterface, ArrayAccess
     /**
      * Sets channelProductNo
      *
-     * @param string $channelProductNo channelProductNo
+     * @param string $channelProductNo The unique product reference used by the Channel
      *
      * @return $this
      */
@@ -260,7 +260,7 @@ class ChannelCancellationLineResponse implements ModelInterface, ArrayAccess
     /**
      * Sets quantity
      *
-     * @param int $quantity quantity
+     * @param int $quantity Quantity of the product to cancel
      *
      * @return $this
      */
