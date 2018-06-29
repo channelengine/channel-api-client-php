@@ -60,9 +60,9 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
         'channelProductNo' => 'string',
         'quantity' => 'int',
         'cancellationRequestedQuantity' => 'int',
-        'unitPriceInclVat' => 'double',
-        'feeFixed' => 'double',
-        'feeRate' => 'double',
+        'unitPriceInclVat' => 'float',
+        'feeFixed' => 'float',
+        'feeRate' => 'float',
         'condition' => 'string'
     ];
 
@@ -75,9 +75,9 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
         'channelProductNo' => null,
         'quantity' => 'int32',
         'cancellationRequestedQuantity' => 'int32',
-        'unitPriceInclVat' => 'double',
-        'feeFixed' => 'double',
-        'feeRate' => 'double',
+        'unitPriceInclVat' => 'decimal',
+        'feeFixed' => 'decimal',
+        'feeRate' => 'decimal',
         'condition' => null
     ];
 
@@ -398,7 +398,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Gets unitPriceInclVat
      *
-     * @return double
+     * @return float
      */
     public function getUnitPriceInclVat()
     {
@@ -408,7 +408,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets unitPriceInclVat
      *
-     * @param double $unitPriceInclVat The value of a single unit of the ordered product including VAT  (in the shop's base currency calculated using the exchange rate at the time of ordering).
+     * @param float $unitPriceInclVat The value of a single unit of the ordered product including VAT  (in the shop's base currency calculated using the exchange rate at the time of ordering).
      *
      * @return $this
      */
@@ -422,7 +422,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Gets feeFixed
      *
-     * @return double
+     * @return float
      */
     public function getFeeFixed()
     {
@@ -432,7 +432,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets feeFixed
      *
-     * @param double $feeFixed A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
+     * @param float $feeFixed A fixed fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
      *
      * @return $this
      */
@@ -446,7 +446,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Gets feeRate
      *
-     * @return double
+     * @return float
      */
     public function getFeeRate()
     {
@@ -456,7 +456,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets feeRate
      *
-     * @param double $feeRate A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
+     * @param float $feeRate A percentage fee that is charged by the Channel for this orderline.  This field is optional, send 0 if not applicable.
      *
      * @return $this
      */

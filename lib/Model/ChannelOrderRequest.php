@@ -64,7 +64,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'companyRegistrationNo' => 'string',
         'vatNo' => 'string',
         'paymentMethod' => 'string',
-        'shippingCostsInclVat' => 'double',
+        'shippingCostsInclVat' => 'float',
         'currencyCode' => 'string',
         'orderDate' => '\DateTime',
         'channelCustomerNo' => 'string',
@@ -86,7 +86,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'companyRegistrationNo' => null,
         'vatNo' => null,
         'paymentMethod' => null,
-        'shippingCostsInclVat' => 'double',
+        'shippingCostsInclVat' => 'decimal',
         'currencyCode' => null,
         'orderDate' => 'date-time',
         'channelCustomerNo' => null,
@@ -648,7 +648,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Gets shippingCostsInclVat
      *
-     * @return double
+     * @return float
      */
     public function getShippingCostsInclVat()
     {
@@ -658,7 +658,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets shippingCostsInclVat
      *
-     * @param double $shippingCostsInclVat The shipping fee including VAT  (in the shop's base currency calculated using the exchange rate at the time of ordering).
+     * @param float $shippingCostsInclVat The shipping fee including VAT  (in the shop's base currency calculated using the exchange rate at the time of ordering).
      *
      * @return $this
      */

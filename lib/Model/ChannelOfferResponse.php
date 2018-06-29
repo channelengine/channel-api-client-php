@@ -58,7 +58,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'channelProductNo' => 'string',
-        'price' => 'double',
+        'price' => 'float',
         'stock' => 'int'
     ];
 
@@ -69,7 +69,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'channelProductNo' => null,
-        'price' => 'double',
+        'price' => 'decimal',
         'stock' => 'int32'
     ];
 
@@ -244,7 +244,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
     /**
      * Gets price
      *
-     * @return double
+     * @return float
      */
     public function getPrice()
     {
@@ -254,7 +254,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
     /**
      * Sets price
      *
-     * @param double $price price
+     * @param float $price price
      *
      * @return $this
      */
