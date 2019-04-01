@@ -293,12 +293,12 @@ class ProductApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
             );
         }
 
@@ -562,12 +562,12 @@ class ProductApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
             );
         }
 
@@ -826,11 +826,11 @@ class ProductApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['text/plain', 'application/json', 'text/json'],
                 []
             );
         }
@@ -1081,11 +1081,11 @@ class ProductApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['text/plain', 'application/json', 'text/json'],
                 []
             );
         }

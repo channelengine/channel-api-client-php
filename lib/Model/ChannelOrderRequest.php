@@ -333,6 +333,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         if ($this->container['currencyCode'] === null) {
             $invalidProperties[] = "'currencyCode' can't be null";
         }
+        if ((strlen($this->container['currencyCode']) > 3)) {
+            $invalidProperties[] = "invalid value for 'currencyCode', the character length must be smaller than or equal to 3.";
+        }
+
         if ($this->container['orderDate'] === null) {
             $invalidProperties[] = "'orderDate' can't be null";
         }
@@ -414,6 +418,9 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['currencyCode'] === null) {
+            return false;
+        }
+        if (strlen($this->container['currencyCode']) > 3) {
             return false;
         }
         if ($this->container['orderDate'] === null) {
@@ -688,6 +695,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      */
     public function setCurrencyCode($currencyCode)
     {
+        if ((strlen($currencyCode) > 3)) {
+            throw new \InvalidArgumentException('invalid length for $currencyCode when calling ChannelOrderRequest., must be smaller than or equal to 3.');
+        }
+
         $this->container['currencyCode'] = $currencyCode;
 
         return $this;

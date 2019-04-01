@@ -58,6 +58,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'statusCode' => 'int',
+        'logId' => 'int',
         'success' => 'bool',
         'message' => 'string',
         'validationErrors' => 'map[string,string[]]'
@@ -70,6 +71,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'statusCode' => 'int32',
+        'logId' => 'int32',
         'success' => null,
         'message' => null,
         'validationErrors' => null
@@ -103,6 +105,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'statusCode' => 'StatusCode',
+        'logId' => 'LogId',
         'success' => 'Success',
         'message' => 'Message',
         'validationErrors' => 'ValidationErrors'
@@ -115,6 +118,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'statusCode' => 'setStatusCode',
+        'logId' => 'setLogId',
         'success' => 'setSuccess',
         'message' => 'setMessage',
         'validationErrors' => 'setValidationErrors'
@@ -127,6 +131,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'statusCode' => 'getStatusCode',
+        'logId' => 'getLogId',
         'success' => 'getSuccess',
         'message' => 'getMessage',
         'validationErrors' => 'getValidationErrors'
@@ -193,6 +198,7 @@ class ApiResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['statusCode'] = isset($data['statusCode']) ? $data['statusCode'] : null;
+        $this->container['logId'] = isset($data['logId']) ? $data['logId'] : null;
         $this->container['success'] = isset($data['success']) ? $data['success'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['validationErrors'] = isset($data['validationErrors']) ? $data['validationErrors'] : null;
@@ -243,6 +249,30 @@ class ApiResponse implements ModelInterface, ArrayAccess
     public function setStatusCode($statusCode)
     {
         $this->container['statusCode'] = $statusCode;
+
+        return $this;
+    }
+
+    /**
+     * Gets logId
+     *
+     * @return int
+     */
+    public function getLogId()
+    {
+        return $this->container['logId'];
+    }
+
+    /**
+     * Sets logId
+     *
+     * @param int $logId logId
+     *
+     * @return $this
+     */
+    public function setLogId($logId)
+    {
+        $this->container['logId'] = $logId;
 
         return $this;
     }

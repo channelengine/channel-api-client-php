@@ -59,6 +59,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'channelOrderNo' => 'string',
         'lines' => '\ChannelEngine\Channel\ApiClient\Model\ChannelCancellationLineResponse[]',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
         'reason' => 'string',
         'reasonCode' => 'string'
     ];
@@ -71,6 +73,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'channelOrderNo' => null,
         'lines' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
         'reason' => null,
         'reasonCode' => null
     ];
@@ -104,6 +108,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'channelOrderNo' => 'ChannelOrderNo',
         'lines' => 'Lines',
+        'createdAt' => 'CreatedAt',
+        'updatedAt' => 'UpdatedAt',
         'reason' => 'Reason',
         'reasonCode' => 'ReasonCode'
     ];
@@ -116,6 +122,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'channelOrderNo' => 'setChannelOrderNo',
         'lines' => 'setLines',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
         'reason' => 'setReason',
         'reasonCode' => 'setReasonCode'
     ];
@@ -128,6 +136,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'channelOrderNo' => 'getChannelOrderNo',
         'lines' => 'getLines',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
         'reason' => 'getReason',
         'reasonCode' => 'getReasonCode'
     ];
@@ -217,6 +227,8 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     {
         $this->container['channelOrderNo'] = isset($data['channelOrderNo']) ? $data['channelOrderNo'] : null;
         $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['reasonCode'] = isset($data['reasonCode']) ? $data['reasonCode'] : null;
     }
@@ -314,6 +326,54 @@ class ChannelCancellationResponse implements ModelInterface, ArrayAccess
     public function setLines($lines)
     {
         $this->container['lines'] = $lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt The date at which the cancellation was created in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt The date at which the cancellation was last modified in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

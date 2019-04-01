@@ -309,12 +309,12 @@ class ReturnApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/json', 'text/json', 'application/x-www-form-urlencoded']
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
             );
         }
 
@@ -385,13 +385,13 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse
      */
-    public function returnGetDeclaredByMerchant($createdSince)
+    public function returnGetDeclaredByMerchant($createdSince = null)
     {
         list($response) = $this->returnGetDeclaredByMerchantWithHttpInfo($createdSince);
         return $response;
@@ -402,13 +402,13 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function returnGetDeclaredByMerchantWithHttpInfo($createdSince)
+    public function returnGetDeclaredByMerchantWithHttpInfo($createdSince = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse';
         $request = $this->returnGetDeclaredByMerchantRequest($createdSince);
@@ -477,12 +477,12 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsync($createdSince)
+    public function returnGetDeclaredByMerchantAsync($createdSince = null)
     {
         return $this->returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince)
             ->then(
@@ -497,12 +497,12 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince)
+    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse';
         $request = $this->returnGetDeclaredByMerchantRequest($createdSince);
@@ -547,19 +547,13 @@ class ReturnApi
     /**
      * Create request for operation 'returnGetDeclaredByMerchant'
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function returnGetDeclaredByMerchantRequest($createdSince)
+    protected function returnGetDeclaredByMerchantRequest($createdSince = null)
     {
-        // verify the required parameter 'createdSince' is set
-        if ($createdSince === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $createdSince when calling returnGetDeclaredByMerchant'
-            );
-        }
 
         $resourcePath = '/v2/returns/channel';
         $formParams = [];
@@ -579,11 +573,11 @@ class ReturnApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['text/plain', 'application/json', 'text/json'],
                 []
             );
         }

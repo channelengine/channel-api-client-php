@@ -59,6 +59,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'channelOrderNo' => 'string',
         'lines' => '\ChannelEngine\Channel\ApiClient\Model\ChannelShipmentLineResponse[]',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
         'trackTraceNo' => 'string',
         'trackTraceUrl' => 'string',
         'method' => 'string'
@@ -72,6 +74,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'channelOrderNo' => null,
         'lines' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
         'trackTraceNo' => null,
         'trackTraceUrl' => null,
         'method' => null
@@ -106,6 +110,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'channelOrderNo' => 'ChannelOrderNo',
         'lines' => 'Lines',
+        'createdAt' => 'CreatedAt',
+        'updatedAt' => 'UpdatedAt',
         'trackTraceNo' => 'TrackTraceNo',
         'trackTraceUrl' => 'TrackTraceUrl',
         'method' => 'Method'
@@ -119,6 +125,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'channelOrderNo' => 'setChannelOrderNo',
         'lines' => 'setLines',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
         'trackTraceNo' => 'setTrackTraceNo',
         'trackTraceUrl' => 'setTrackTraceUrl',
         'method' => 'setMethod'
@@ -132,6 +140,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'channelOrderNo' => 'getChannelOrderNo',
         'lines' => 'getLines',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
         'trackTraceNo' => 'getTrackTraceNo',
         'trackTraceUrl' => 'getTrackTraceUrl',
         'method' => 'getMethod'
@@ -199,6 +209,8 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     {
         $this->container['channelOrderNo'] = isset($data['channelOrderNo']) ? $data['channelOrderNo'] : null;
         $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
         $this->container['trackTraceNo'] = isset($data['trackTraceNo']) ? $data['trackTraceNo'] : null;
         $this->container['trackTraceUrl'] = isset($data['trackTraceUrl']) ? $data['trackTraceUrl'] : null;
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
@@ -332,6 +344,54 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt The date at which the shipment was created in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt The date at which the shipment was last modified in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->container['updatedAt'] = $updatedAt;
+
+        return $this;
+    }
+
+    /**
      * Gets trackTraceNo
      *
      * @return string
@@ -406,7 +466,7 @@ class ChannelShipmentResponse implements ModelInterface, ArrayAccess
     /**
      * Sets method
      *
-     * @param string $method Shipment method (carrier)
+     * @param string $method Shipment method: the carrier used for shipping the package. E.g. DHL, postNL
      *
      * @return $this
      */

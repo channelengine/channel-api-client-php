@@ -195,6 +195,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     const CONDITION_USED_REASONABLE = 'USED_REASONABLE';
     const CONDITION_USED_MEDIOCRE = 'USED_MEDIOCRE';
     const CONDITION_UNKNOWN = 'UNKNOWN';
+    const CONDITION_USED_VERY_GOOD = 'USED_VERY_GOOD';
     
 
     
@@ -213,6 +214,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
             self::CONDITION_USED_REASONABLE,
             self::CONDITION_USED_MEDIOCRE,
             self::CONDITION_UNKNOWN,
+            self::CONDITION_USED_VERY_GOOD,
         ];
     }
     
@@ -264,9 +266,6 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
         }
-        if ($this->container['cancellationRequestedQuantity'] === null) {
-            $invalidProperties[] = "'cancellationRequestedQuantity' can't be null";
-        }
         if ($this->container['unitPriceInclVat'] === null) {
             $invalidProperties[] = "'unitPriceInclVat' can't be null";
         }
@@ -300,9 +299,6 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
             return false;
         }
         if ($this->container['quantity'] === null) {
-            return false;
-        }
-        if ($this->container['cancellationRequestedQuantity'] === null) {
             return false;
         }
         if ($this->container['unitPriceInclVat'] === null) {

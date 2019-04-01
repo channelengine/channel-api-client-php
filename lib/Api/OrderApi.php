@@ -309,12 +309,12 @@ class OrderApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
-                ['application/json', 'text/json', 'application/x-www-form-urlencoded']
+                ['text/plain', 'application/json', 'text/json'],
+                ['application/json-patch+json', 'application/json', 'text/json', 'application/_*+json']
             );
         }
 
@@ -386,13 +386,13 @@ class OrderApi
      * Download Invoice
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function orderInvoice($merchantOrderNo, $useCustomerCulture = null)
+    public function orderInvoice($merchantOrderNo, $useCustomerCulture = 'false')
     {
         list($response) = $this->orderInvoiceWithHttpInfo($merchantOrderNo, $useCustomerCulture);
         return $response;
@@ -404,13 +404,13 @@ class OrderApi
      * Download Invoice
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function orderInvoiceWithHttpInfo($merchantOrderNo, $useCustomerCulture = null)
+    public function orderInvoiceWithHttpInfo($merchantOrderNo, $useCustomerCulture = 'false')
     {
         $returnType = '\SplFileObject';
         $request = $this->orderInvoiceRequest($merchantOrderNo, $useCustomerCulture);
@@ -488,12 +488,12 @@ class OrderApi
      * Download Invoice
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderInvoiceAsync($merchantOrderNo, $useCustomerCulture = null)
+    public function orderInvoiceAsync($merchantOrderNo, $useCustomerCulture = 'false')
     {
         return $this->orderInvoiceAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture)
             ->then(
@@ -509,12 +509,12 @@ class OrderApi
      * Download Invoice
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderInvoiceAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture = null)
+    public function orderInvoiceAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture = 'false')
     {
         $returnType = '\SplFileObject';
         $request = $this->orderInvoiceRequest($merchantOrderNo, $useCustomerCulture);
@@ -560,12 +560,12 @@ class OrderApi
      * Create request for operation 'orderInvoice'
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function orderInvoiceRequest($merchantOrderNo, $useCustomerCulture = null)
+    protected function orderInvoiceRequest($merchantOrderNo, $useCustomerCulture = 'false')
     {
         // verify the required parameter 'merchantOrderNo' is set
         if ($merchantOrderNo === null) {
@@ -677,13 +677,13 @@ class OrderApi
      * Download Packing Slip
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject
      */
-    public function orderPackingSlip($merchantOrderNo, $useCustomerCulture = null)
+    public function orderPackingSlip($merchantOrderNo, $useCustomerCulture = 'false')
     {
         list($response) = $this->orderPackingSlipWithHttpInfo($merchantOrderNo, $useCustomerCulture);
         return $response;
@@ -695,13 +695,13 @@ class OrderApi
      * Download Packing Slip
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject, HTTP status code, HTTP response headers (array of strings)
      */
-    public function orderPackingSlipWithHttpInfo($merchantOrderNo, $useCustomerCulture = null)
+    public function orderPackingSlipWithHttpInfo($merchantOrderNo, $useCustomerCulture = 'false')
     {
         $returnType = '\SplFileObject';
         $request = $this->orderPackingSlipRequest($merchantOrderNo, $useCustomerCulture);
@@ -779,12 +779,12 @@ class OrderApi
      * Download Packing Slip
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderPackingSlipAsync($merchantOrderNo, $useCustomerCulture = null)
+    public function orderPackingSlipAsync($merchantOrderNo, $useCustomerCulture = 'false')
     {
         return $this->orderPackingSlipAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture)
             ->then(
@@ -800,12 +800,12 @@ class OrderApi
      * Download Packing Slip
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function orderPackingSlipAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture = null)
+    public function orderPackingSlipAsyncWithHttpInfo($merchantOrderNo, $useCustomerCulture = 'false')
     {
         $returnType = '\SplFileObject';
         $request = $this->orderPackingSlipRequest($merchantOrderNo, $useCustomerCulture);
@@ -851,12 +851,12 @@ class OrderApi
      * Create request for operation 'orderPackingSlip'
      *
      * @param  string $merchantOrderNo The unique order reference as used by the merchant (required)
-     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional)
+     * @param  bool $useCustomerCulture Generate the invoice in the billing address&#39; country&#39;s language (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function orderPackingSlipRequest($merchantOrderNo, $useCustomerCulture = null)
+    protected function orderPackingSlipRequest($merchantOrderNo, $useCustomerCulture = 'false')
     {
         // verify the required parameter 'merchantOrderNo' is set
         if ($merchantOrderNo === null) {

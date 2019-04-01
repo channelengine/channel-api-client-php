@@ -92,13 +92,13 @@ class CancellationApi
      *
      * Get Cancellations
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelCancellationResponse
      */
-    public function cancellationIndex($createdSince)
+    public function cancellationIndex($createdSince = null)
     {
         list($response) = $this->cancellationIndexWithHttpInfo($createdSince);
         return $response;
@@ -109,13 +109,13 @@ class CancellationApi
      *
      * Get Cancellations
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelCancellationResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancellationIndexWithHttpInfo($createdSince)
+    public function cancellationIndexWithHttpInfo($createdSince = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelCancellationResponse';
         $request = $this->cancellationIndexRequest($createdSince);
@@ -184,12 +184,12 @@ class CancellationApi
      *
      * Get Cancellations
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancellationIndexAsync($createdSince)
+    public function cancellationIndexAsync($createdSince = null)
     {
         return $this->cancellationIndexAsyncWithHttpInfo($createdSince)
             ->then(
@@ -204,12 +204,12 @@ class CancellationApi
      *
      * Get Cancellations
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancellationIndexAsyncWithHttpInfo($createdSince)
+    public function cancellationIndexAsyncWithHttpInfo($createdSince = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelCancellationResponse';
         $request = $this->cancellationIndexRequest($createdSince);
@@ -254,19 +254,13 @@ class CancellationApi
     /**
      * Create request for operation 'cancellationIndex'
      *
-     * @param  \DateTime $createdSince  (required)
+     * @param  \DateTime $createdSince  (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancellationIndexRequest($createdSince)
+    protected function cancellationIndexRequest($createdSince = null)
     {
-        // verify the required parameter 'createdSince' is set
-        if ($createdSince === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $createdSince when calling cancellationIndex'
-            );
-        }
 
         $resourcePath = '/v2/cancellations';
         $formParams = [];
@@ -286,11 +280,11 @@ class CancellationApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json']
+                ['text/plain', 'application/json', 'text/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json'],
+                ['text/plain', 'application/json', 'text/json'],
                 []
             );
         }

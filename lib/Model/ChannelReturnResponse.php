@@ -60,6 +60,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         'channelReturnNo' => 'string',
         'channelOrderNo' => 'string',
         'lines' => '\ChannelEngine\Channel\ApiClient\Model\ChannelReturnLineResponse[]',
+        'createdAt' => '\DateTime',
+        'updatedAt' => '\DateTime',
         'id' => 'int',
         'reason' => 'string',
         'customerComment' => 'string',
@@ -77,6 +79,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         'channelReturnNo' => null,
         'channelOrderNo' => null,
         'lines' => null,
+        'createdAt' => 'date-time',
+        'updatedAt' => 'date-time',
         'id' => 'int32',
         'reason' => null,
         'customerComment' => null,
@@ -115,6 +119,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         'channelReturnNo' => 'ChannelReturnNo',
         'channelOrderNo' => 'ChannelOrderNo',
         'lines' => 'Lines',
+        'createdAt' => 'CreatedAt',
+        'updatedAt' => 'UpdatedAt',
         'id' => 'Id',
         'reason' => 'Reason',
         'customerComment' => 'CustomerComment',
@@ -132,6 +138,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         'channelReturnNo' => 'setChannelReturnNo',
         'channelOrderNo' => 'setChannelOrderNo',
         'lines' => 'setLines',
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt',
         'id' => 'setId',
         'reason' => 'setReason',
         'customerComment' => 'setCustomerComment',
@@ -149,6 +157,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         'channelReturnNo' => 'getChannelReturnNo',
         'channelOrderNo' => 'getChannelOrderNo',
         'lines' => 'getLines',
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt',
         'id' => 'getId',
         'reason' => 'getReason',
         'customerComment' => 'getCustomerComment',
@@ -206,6 +216,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     const REASON_REFUSED_DAMAGED = 'REFUSED_DAMAGED';
     const REASON_WRONG_ADDRESS = 'WRONG_ADDRESS';
     const REASON_NOT_COLLECTED = 'NOT_COLLECTED';
+    const REASON_WRONG_SIZE = 'WRONG_SIZE';
     const REASON_OTHER = 'OTHER';
     
 
@@ -226,6 +237,7 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
             self::REASON_REFUSED_DAMAGED,
             self::REASON_WRONG_ADDRESS,
             self::REASON_NOT_COLLECTED,
+            self::REASON_WRONG_SIZE,
             self::REASON_OTHER,
         ];
     }
@@ -249,6 +261,8 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
         $this->container['channelReturnNo'] = isset($data['channelReturnNo']) ? $data['channelReturnNo'] : null;
         $this->container['channelOrderNo'] = isset($data['channelOrderNo']) ? $data['channelOrderNo'] : null;
         $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['reason'] = isset($data['reason']) ? $data['reason'] : null;
         $this->container['customerComment'] = isset($data['customerComment']) ? $data['customerComment'] : null;
@@ -408,6 +422,54 @@ class ChannelReturnResponse implements ModelInterface, ArrayAccess
     public function setLines($lines)
     {
         $this->container['lines'] = $lines;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->container['createdAt'];
+    }
+
+    /**
+     * Sets createdAt
+     *
+     * @param \DateTime $createdAt The date at which the return was created in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->container['createdAt'] = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Gets updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updatedAt'];
+    }
+
+    /**
+     * Sets updatedAt
+     *
+     * @param \DateTime $updatedAt The date at which the return was last modified in ChannelEngine
+     *
+     * @return $this
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }
