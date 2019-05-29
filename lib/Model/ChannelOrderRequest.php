@@ -316,14 +316,11 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'vatNo', the character length must be bigger than or equal to 0.";
         }
 
-        if ($this->container['paymentMethod'] === null) {
-            $invalidProperties[] = "'paymentMethod' can't be null";
-        }
-        if ((strlen($this->container['paymentMethod']) > 50)) {
+        if (!is_null($this->container['paymentMethod']) && (strlen($this->container['paymentMethod']) > 50)) {
             $invalidProperties[] = "invalid value for 'paymentMethod', the character length must be smaller than or equal to 50.";
         }
 
-        if ((strlen($this->container['paymentMethod']) < 0)) {
+        if (!is_null($this->container['paymentMethod']) && (strlen($this->container['paymentMethod']) < 0)) {
             $invalidProperties[] = "invalid value for 'paymentMethod', the character length must be bigger than or equal to 0.";
         }
 
@@ -403,9 +400,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
             return false;
         }
         if (strlen($this->container['vatNo']) < 0) {
-            return false;
-        }
-        if ($this->container['paymentMethod'] === null) {
             return false;
         }
         if (strlen($this->container['paymentMethod']) > 50) {
@@ -640,10 +634,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      */
     public function setPaymentMethod($paymentMethod)
     {
-        if ((strlen($paymentMethod) > 50)) {
+        if (!is_null($paymentMethod) && (strlen($paymentMethod) > 50)) {
             throw new \InvalidArgumentException('invalid length for $paymentMethod when calling ChannelOrderRequest., must be smaller than or equal to 50.');
         }
-        if ((strlen($paymentMethod) < 0)) {
+        if (!is_null($paymentMethod) && (strlen($paymentMethod) < 0)) {
             throw new \InvalidArgumentException('invalid length for $paymentMethod when calling ChannelOrderRequest., must be bigger than or equal to 0.');
         }
 
