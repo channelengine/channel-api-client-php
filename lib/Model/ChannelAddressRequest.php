@@ -1,6 +1,6 @@
 <?php
 /**
- * Address
+ * ChannelAddressRequest
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * Address Class Doc Comment
+ * ChannelAddressRequest Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Address implements ModelInterface, ArrayAccess
+class ChannelAddressRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class Address implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Address';
+    protected static $swaggerModelName = 'ChannelAddressRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -493,10 +493,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setCompanyName($companyName)
     {
         if (!is_null($companyName) && (strlen($companyName) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $companyName when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $companyName when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($companyName) && (strlen($companyName) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $companyName when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $companyName when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['companyName'] = $companyName;
@@ -524,10 +524,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setFirstName($firstName)
     {
         if (!is_null($firstName) && (strlen($firstName) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $firstName when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $firstName when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($firstName) && (strlen($firstName) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $firstName when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $firstName when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['firstName'] = $firstName;
@@ -555,10 +555,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setLastName($lastName)
     {
         if (!is_null($lastName) && (strlen($lastName) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $lastName when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $lastName when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($lastName) && (strlen($lastName) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $lastName when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $lastName when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['lastName'] = $lastName;
@@ -586,10 +586,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setStreetName($streetName)
     {
         if (!is_null($streetName) && (strlen($streetName) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $streetName when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $streetName when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($streetName) && (strlen($streetName) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $streetName when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $streetName when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['streetName'] = $streetName;
@@ -617,10 +617,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setHouseNr($houseNr)
     {
         if (!is_null($houseNr) && (strlen($houseNr) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $houseNr when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $houseNr when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($houseNr) && (strlen($houseNr) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $houseNr when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $houseNr when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['houseNr'] = $houseNr;
@@ -648,10 +648,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setHouseNrAddition($houseNrAddition)
     {
         if (!is_null($houseNrAddition) && (strlen($houseNrAddition) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $houseNrAddition when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $houseNrAddition when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($houseNrAddition) && (strlen($houseNrAddition) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $houseNrAddition when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $houseNrAddition when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['houseNrAddition'] = $houseNrAddition;
@@ -703,10 +703,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setCity($city)
     {
         if (!is_null($city) && (strlen($city) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $city when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($city) && (strlen($city) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $city when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $city when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['city'] = $city;
@@ -734,10 +734,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setRegion($region)
     {
         if (!is_null($region) && (strlen($region) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $region when calling ChannelAddressRequest., must be smaller than or equal to 50.');
         }
         if (!is_null($region) && (strlen($region) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $region when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $region when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['region'] = $region;
@@ -765,10 +765,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setCountryIso($countryIso)
     {
         if (!is_null($countryIso) && (strlen($countryIso) > 2)) {
-            throw new \InvalidArgumentException('invalid length for $countryIso when calling Address., must be smaller than or equal to 2.');
+            throw new \InvalidArgumentException('invalid length for $countryIso when calling ChannelAddressRequest., must be smaller than or equal to 2.');
         }
         if (!is_null($countryIso) && (strlen($countryIso) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $countryIso when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $countryIso when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['countryIso'] = $countryIso;
@@ -796,10 +796,10 @@ class Address implements ModelInterface, ArrayAccess
     public function setOriginal($original)
     {
         if (!is_null($original) && (strlen($original) > 256)) {
-            throw new \InvalidArgumentException('invalid length for $original when calling Address., must be smaller than or equal to 256.');
+            throw new \InvalidArgumentException('invalid length for $original when calling ChannelAddressRequest., must be smaller than or equal to 256.');
         }
         if (!is_null($original) && (strlen($original) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $original when calling Address., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $original when calling ChannelAddressRequest., must be bigger than or equal to 0.');
         }
 
         $this->container['original'] = $original;

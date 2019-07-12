@@ -57,7 +57,7 @@ class ChannelProcessedChangesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'created' => '\ChannelEngine\Channel\ApiClient\Model\ChannelReferencesRequest[]',
+        'created' => '\ChannelEngine\Channel\ApiClient\Model\ChannelProductReferencesRequest[]',
         'updated' => 'string[]',
         'removed' => 'string[]'
     ];
@@ -220,7 +220,7 @@ class ChannelProcessedChangesRequest implements ModelInterface, ArrayAccess
     /**
      * Gets created
      *
-     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelReferencesRequest[]
+     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelProductReferencesRequest[]
      */
     public function getCreated()
     {
@@ -230,7 +230,7 @@ class ChannelProcessedChangesRequest implements ModelInterface, ArrayAccess
     /**
      * Sets created
      *
-     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelReferencesRequest[] $created A collection of pairs of merchant and channel references  of the products which are successfully created. The channel references  are saved such that in subsequent calls these can be used instead of the   merchant references.
+     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelProductReferencesRequest[] $created A collection of pairs of merchant and channel references  of the products which are successfully created. The channel references  are saved such that in subsequent calls these can be used instead of the   merchant references.
      *
      * @return $this
      */

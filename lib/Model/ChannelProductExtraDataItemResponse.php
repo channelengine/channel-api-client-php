@@ -1,6 +1,6 @@
 <?php
 /**
- * ChannelReferencesRequest
+ * ChannelProductExtraDataItemResponse
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * ChannelReferencesRequest Class Doc Comment
+ * ChannelProductExtraDataItemResponse Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ChannelReferencesRequest implements ModelInterface, ArrayAccess
+class ChannelProductExtraDataItemResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'ChannelReferencesRequest';
+    protected static $swaggerModelName = 'ChannelProductExtraDataItemResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'channelProductNo' => 'string'
+        'key' => 'string',
+        'value' => 'string',
+        'type' => 'string',
+        'isPublic' => 'bool'
     ];
 
     /**
@@ -67,8 +69,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int32',
-        'channelProductNo' => null
+        'key' => null,
+        'value' => null,
+        'type' => null,
+        'isPublic' => null
     ];
 
     /**
@@ -98,8 +102,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'Id',
-        'channelProductNo' => 'ChannelProductNo'
+        'key' => 'Key',
+        'value' => 'Value',
+        'type' => 'Type',
+        'isPublic' => 'IsPublic'
     ];
 
     /**
@@ -108,8 +114,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'channelProductNo' => 'setChannelProductNo'
+        'key' => 'setKey',
+        'value' => 'setValue',
+        'type' => 'setType',
+        'isPublic' => 'setIsPublic'
     ];
 
     /**
@@ -118,8 +126,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'channelProductNo' => 'getChannelProductNo'
+        'key' => 'getKey',
+        'value' => 'getValue',
+        'type' => 'getType',
+        'isPublic' => 'getIsPublic'
     ];
 
     /**
@@ -163,8 +173,27 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const TYPE_TEXT = 'TEXT';
+    const TYPE_NUMBER = 'NUMBER';
+    const TYPE_URL = 'URL';
+    const TYPE_IMAGEURL = 'IMAGEURL';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_TEXT,
+            self::TYPE_NUMBER,
+            self::TYPE_URL,
+            self::TYPE_IMAGEURL,
+        ];
+    }
     
 
     /**
@@ -182,8 +211,10 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['channelProductNo'] = isset($data['channelProductNo']) ? $data['channelProductNo'] : null;
+        $this->container['key'] = isset($data['key']) ? $data['key'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
+        $this->container['isPublic'] = isset($data['isPublic']) ? $data['isPublic'] : null;
     }
 
     /**
@@ -194,6 +225,14 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -207,54 +246,115 @@ class ChannelReferencesRequest implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($this->container['type'], $allowedValues)) {
+            return false;
+        }
         return true;
     }
 
 
     /**
-     * Gets id
+     * Gets key
      *
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getKey()
     {
-        return $this->container['id'];
+        return $this->container['key'];
     }
 
     /**
-     * Sets id
+     * Sets key
      *
-     * @param int $id The unique ChannelEngine product ID.
+     * @param string $key Name of the extra data field
      *
      * @return $this
      */
-    public function setId($id)
+    public function setKey($key)
     {
-        $this->container['id'] = $id;
+        $this->container['key'] = $key;
 
         return $this;
     }
 
     /**
-     * Gets channelProductNo
+     * Gets value
      *
      * @return string
      */
-    public function getChannelProductNo()
+    public function getValue()
     {
-        return $this->container['channelProductNo'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets channelProductNo
+     * Sets value
      *
-     * @param string $channelProductNo The unique product reference used by the Channel
+     * @param string $value Value of the extra data field
      *
      * @return $this
      */
-    public function setChannelProductNo($channelProductNo)
+    public function setValue($value)
     {
-        $this->container['channelProductNo'] = $channelProductNo;
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type Type of the extra data field
+     *
+     * @return $this
+     */
+    public function setType($type)
+    {
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($type) && !in_array($type, $allowedValues)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets isPublic
+     *
+     * @return bool
+     */
+    public function getIsPublic()
+    {
+        return $this->container['isPublic'];
+    }
+
+    /**
+     * Sets isPublic
+     *
+     * @param bool $isPublic Add this field to the export of the product feed to the channel
+     *
+     * @return $this
+     */
+    public function setIsPublic($isPublic)
+    {
+        $this->container['isPublic'] = $isPublic;
 
         return $this;
     }

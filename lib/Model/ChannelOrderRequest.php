@@ -57,7 +57,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'billingAddress' => '\ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest',
+        'shippingAddress' => '\ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest',
         'channelOrderNo' => 'string',
+        'isBusinessOrder' => 'bool',
         'lines' => '\ChannelEngine\Channel\ApiClient\Model\ChannelOrderLineRequest[]',
         'phone' => 'string',
         'email' => 'string',
@@ -68,8 +71,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'currencyCode' => 'string',
         'orderDate' => '\DateTime',
         'channelCustomerNo' => 'string',
-        'billingAddress' => '\ChannelEngine\Channel\ApiClient\Model\Address',
-        'shippingAddress' => '\ChannelEngine\Channel\ApiClient\Model\Address',
         'extraData' => 'map[string,string]'
     ];
 
@@ -79,7 +80,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'billingAddress' => null,
+        'shippingAddress' => null,
         'channelOrderNo' => null,
+        'isBusinessOrder' => null,
         'lines' => null,
         'phone' => null,
         'email' => null,
@@ -90,8 +94,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'currencyCode' => null,
         'orderDate' => 'date-time',
         'channelCustomerNo' => null,
-        'billingAddress' => null,
-        'shippingAddress' => null,
         'extraData' => null
     ];
 
@@ -122,7 +124,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'billingAddress' => 'BillingAddress',
+        'shippingAddress' => 'ShippingAddress',
         'channelOrderNo' => 'ChannelOrderNo',
+        'isBusinessOrder' => 'IsBusinessOrder',
         'lines' => 'Lines',
         'phone' => 'Phone',
         'email' => 'Email',
@@ -133,8 +138,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'currencyCode' => 'CurrencyCode',
         'orderDate' => 'OrderDate',
         'channelCustomerNo' => 'ChannelCustomerNo',
-        'billingAddress' => 'BillingAddress',
-        'shippingAddress' => 'ShippingAddress',
         'extraData' => 'ExtraData'
     ];
 
@@ -144,7 +147,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'billingAddress' => 'setBillingAddress',
+        'shippingAddress' => 'setShippingAddress',
         'channelOrderNo' => 'setChannelOrderNo',
+        'isBusinessOrder' => 'setIsBusinessOrder',
         'lines' => 'setLines',
         'phone' => 'setPhone',
         'email' => 'setEmail',
@@ -155,8 +161,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'currencyCode' => 'setCurrencyCode',
         'orderDate' => 'setOrderDate',
         'channelCustomerNo' => 'setChannelCustomerNo',
-        'billingAddress' => 'setBillingAddress',
-        'shippingAddress' => 'setShippingAddress',
         'extraData' => 'setExtraData'
     ];
 
@@ -166,7 +170,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'billingAddress' => 'getBillingAddress',
+        'shippingAddress' => 'getShippingAddress',
         'channelOrderNo' => 'getChannelOrderNo',
+        'isBusinessOrder' => 'getIsBusinessOrder',
         'lines' => 'getLines',
         'phone' => 'getPhone',
         'email' => 'getEmail',
@@ -177,8 +184,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'currencyCode' => 'getCurrencyCode',
         'orderDate' => 'getOrderDate',
         'channelCustomerNo' => 'getChannelCustomerNo',
-        'billingAddress' => 'getBillingAddress',
-        'shippingAddress' => 'getShippingAddress',
         'extraData' => 'getExtraData'
     ];
 
@@ -242,7 +247,10 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['billingAddress'] = isset($data['billingAddress']) ? $data['billingAddress'] : null;
+        $this->container['shippingAddress'] = isset($data['shippingAddress']) ? $data['shippingAddress'] : null;
         $this->container['channelOrderNo'] = isset($data['channelOrderNo']) ? $data['channelOrderNo'] : null;
+        $this->container['isBusinessOrder'] = isset($data['isBusinessOrder']) ? $data['isBusinessOrder'] : null;
         $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
@@ -253,8 +261,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         $this->container['currencyCode'] = isset($data['currencyCode']) ? $data['currencyCode'] : null;
         $this->container['orderDate'] = isset($data['orderDate']) ? $data['orderDate'] : null;
         $this->container['channelCustomerNo'] = isset($data['channelCustomerNo']) ? $data['channelCustomerNo'] : null;
-        $this->container['billingAddress'] = isset($data['billingAddress']) ? $data['billingAddress'] : null;
-        $this->container['shippingAddress'] = isset($data['shippingAddress']) ? $data['shippingAddress'] : null;
         $this->container['extraData'] = isset($data['extraData']) ? $data['extraData'] : null;
     }
 
@@ -267,6 +273,12 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['billingAddress'] === null) {
+            $invalidProperties[] = "'billingAddress' can't be null";
+        }
+        if ($this->container['shippingAddress'] === null) {
+            $invalidProperties[] = "'shippingAddress' can't be null";
+        }
         if ($this->container['channelOrderNo'] === null) {
             $invalidProperties[] = "'channelOrderNo' can't be null";
         }
@@ -345,12 +357,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
             $invalidProperties[] = "invalid value for 'channelCustomerNo', the character length must be bigger than or equal to 0.";
         }
 
-        if ($this->container['billingAddress'] === null) {
-            $invalidProperties[] = "'billingAddress' can't be null";
-        }
-        if ($this->container['shippingAddress'] === null) {
-            $invalidProperties[] = "'shippingAddress' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -363,6 +369,12 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['billingAddress'] === null) {
+            return false;
+        }
+        if ($this->container['shippingAddress'] === null) {
+            return false;
+        }
         if ($this->container['channelOrderNo'] === null) {
             return false;
         }
@@ -426,15 +438,57 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         if (strlen($this->container['channelCustomerNo']) < 0) {
             return false;
         }
-        if ($this->container['billingAddress'] === null) {
-            return false;
-        }
-        if ($this->container['shippingAddress'] === null) {
-            return false;
-        }
         return true;
     }
 
+
+    /**
+     * Gets billingAddress
+     *
+     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest
+     */
+    public function getBillingAddress()
+    {
+        return $this->container['billingAddress'];
+    }
+
+    /**
+     * Sets billingAddress
+     *
+     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest $billingAddress The billing or invoice address
+     *
+     * @return $this
+     */
+    public function setBillingAddress($billingAddress)
+    {
+        $this->container['billingAddress'] = $billingAddress;
+
+        return $this;
+    }
+
+    /**
+     * Gets shippingAddress
+     *
+     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shippingAddress'];
+    }
+
+    /**
+     * Sets shippingAddress
+     *
+     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest $shippingAddress The shipping address
+     *
+     * @return $this
+     */
+    public function setShippingAddress($shippingAddress)
+    {
+        $this->container['shippingAddress'] = $shippingAddress;
+
+        return $this;
+    }
 
     /**
      * Gets channelOrderNo
@@ -463,6 +517,30 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         }
 
         $this->container['channelOrderNo'] = $channelOrderNo;
+
+        return $this;
+    }
+
+    /**
+     * Gets isBusinessOrder
+     *
+     * @return bool
+     */
+    public function getIsBusinessOrder()
+    {
+        return $this->container['isBusinessOrder'];
+    }
+
+    /**
+     * Sets isBusinessOrder
+     *
+     * @param bool $isBusinessOrder Optional. Is a business order (default value is false).  If not provided the VAT Number will be checked. If a VAT Number is found, IsBusinessOrder will be set to true.  No VAT will be calculated when set to true.
+     *
+     * @return $this
+     */
+    public function setIsBusinessOrder($isBusinessOrder)
+    {
+        $this->container['isBusinessOrder'] = $isBusinessOrder;
 
         return $this;
     }
@@ -749,54 +827,6 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         }
 
         $this->container['channelCustomerNo'] = $channelCustomerNo;
-
-        return $this;
-    }
-
-    /**
-     * Gets billingAddress
-     *
-     * @return \ChannelEngine\Channel\ApiClient\Model\Address
-     */
-    public function getBillingAddress()
-    {
-        return $this->container['billingAddress'];
-    }
-
-    /**
-     * Sets billingAddress
-     *
-     * @param \ChannelEngine\Channel\ApiClient\Model\Address $billingAddress The billing or invoice address
-     *
-     * @return $this
-     */
-    public function setBillingAddress($billingAddress)
-    {
-        $this->container['billingAddress'] = $billingAddress;
-
-        return $this;
-    }
-
-    /**
-     * Gets shippingAddress
-     *
-     * @return \ChannelEngine\Channel\ApiClient\Model\Address
-     */
-    public function getShippingAddress()
-    {
-        return $this->container['shippingAddress'];
-    }
-
-    /**
-     * Sets shippingAddress
-     *
-     * @param \ChannelEngine\Channel\ApiClient\Model\Address $shippingAddress The shipping address
-     *
-     * @return $this
-     */
-    public function setShippingAddress($shippingAddress)
-    {
-        $this->container['shippingAddress'] = $shippingAddress;
 
         return $this;
     }

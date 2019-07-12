@@ -60,6 +60,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'id' => 'int',
         'parentChannelProductNo' => 'string',
         'mappedFields' => 'map[string,string]',
+        'extraData' => '\ChannelEngine\Channel\ApiClient\Model\ChannelProductExtraDataItemResponse[]',
         'name' => 'string',
         'description' => 'string',
         'brand' => 'string',
@@ -85,8 +86,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'extraImageUrl7' => 'string',
         'extraImageUrl8' => 'string',
         'extraImageUrl9' => 'string',
-        'categoryTrail' => 'string',
-        'extraData' => '\ChannelEngine\Channel\ApiClient\Model\ExtraDataItem[]'
+        'categoryTrail' => 'string'
     ];
 
     /**
@@ -98,6 +98,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'id' => 'int32',
         'parentChannelProductNo' => null,
         'mappedFields' => null,
+        'extraData' => null,
         'name' => null,
         'description' => null,
         'brand' => null,
@@ -123,8 +124,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'extraImageUrl7' => null,
         'extraImageUrl8' => null,
         'extraImageUrl9' => null,
-        'categoryTrail' => null,
-        'extraData' => null
+        'categoryTrail' => null
     ];
 
     /**
@@ -157,6 +157,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'id' => 'Id',
         'parentChannelProductNo' => 'ParentChannelProductNo',
         'mappedFields' => 'MappedFields',
+        'extraData' => 'ExtraData',
         'name' => 'Name',
         'description' => 'Description',
         'brand' => 'Brand',
@@ -182,8 +183,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'extraImageUrl7' => 'ExtraImageUrl7',
         'extraImageUrl8' => 'ExtraImageUrl8',
         'extraImageUrl9' => 'ExtraImageUrl9',
-        'categoryTrail' => 'CategoryTrail',
-        'extraData' => 'ExtraData'
+        'categoryTrail' => 'CategoryTrail'
     ];
 
     /**
@@ -195,6 +195,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'parentChannelProductNo' => 'setParentChannelProductNo',
         'mappedFields' => 'setMappedFields',
+        'extraData' => 'setExtraData',
         'name' => 'setName',
         'description' => 'setDescription',
         'brand' => 'setBrand',
@@ -220,8 +221,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'extraImageUrl7' => 'setExtraImageUrl7',
         'extraImageUrl8' => 'setExtraImageUrl8',
         'extraImageUrl9' => 'setExtraImageUrl9',
-        'categoryTrail' => 'setCategoryTrail',
-        'extraData' => 'setExtraData'
+        'categoryTrail' => 'setCategoryTrail'
     ];
 
     /**
@@ -233,6 +233,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'parentChannelProductNo' => 'getParentChannelProductNo',
         'mappedFields' => 'getMappedFields',
+        'extraData' => 'getExtraData',
         'name' => 'getName',
         'description' => 'getDescription',
         'brand' => 'getBrand',
@@ -258,8 +259,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         'extraImageUrl7' => 'getExtraImageUrl7',
         'extraImageUrl8' => 'getExtraImageUrl8',
         'extraImageUrl9' => 'getExtraImageUrl9',
-        'categoryTrail' => 'getCategoryTrail',
-        'extraData' => 'getExtraData'
+        'categoryTrail' => 'getCategoryTrail'
     ];
 
     /**
@@ -342,6 +342,7 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['parentChannelProductNo'] = isset($data['parentChannelProductNo']) ? $data['parentChannelProductNo'] : null;
         $this->container['mappedFields'] = isset($data['mappedFields']) ? $data['mappedFields'] : null;
+        $this->container['extraData'] = isset($data['extraData']) ? $data['extraData'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
@@ -368,7 +369,6 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
         $this->container['extraImageUrl8'] = isset($data['extraImageUrl8']) ? $data['extraImageUrl8'] : null;
         $this->container['extraImageUrl9'] = isset($data['extraImageUrl9']) ? $data['extraImageUrl9'] : null;
         $this->container['categoryTrail'] = isset($data['categoryTrail']) ? $data['categoryTrail'] : null;
-        $this->container['extraData'] = isset($data['extraData']) ? $data['extraData'] : null;
     }
 
     /**
@@ -476,6 +476,30 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     public function setMappedFields($mappedFields)
     {
         $this->container['mappedFields'] = $mappedFields;
+
+        return $this;
+    }
+
+    /**
+     * Gets extraData
+     *
+     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelProductExtraDataItemResponse[]
+     */
+    public function getExtraData()
+    {
+        return $this->container['extraData'];
+    }
+
+    /**
+     * Sets extraData
+     *
+     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelProductExtraDataItemResponse[] $extraData An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.
+     *
+     * @return $this
+     */
+    public function setExtraData($extraData)
+    {
+        $this->container['extraData'] = $extraData;
 
         return $this;
     }
@@ -1109,30 +1133,6 @@ class ChannelProductResponse implements ModelInterface, ArrayAccess
     public function setCategoryTrail($categoryTrail)
     {
         $this->container['categoryTrail'] = $categoryTrail;
-
-        return $this;
-    }
-
-    /**
-     * Gets extraData
-     *
-     * @return \ChannelEngine\Channel\ApiClient\Model\ExtraDataItem[]
-     */
-    public function getExtraData()
-    {
-        return $this->container['extraData'];
-    }
-
-    /**
-     * Sets extraData
-     *
-     * @param \ChannelEngine\Channel\ApiClient\Model\ExtraDataItem[] $extraData An optional list of key-value pairs containing  extra data about this product. This data can be  sent to channels or used for filtering products.
-     *
-     * @return $this
-     */
-    public function setExtraData($extraData)
-    {
-        $this->container['extraData'] = $extraData;
 
         return $this;
     }
