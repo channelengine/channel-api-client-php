@@ -385,15 +385,20 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Return status(es) to filter on (optional)
+     * @param  string[] $reasons Return reason(s) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse
      */
-    public function returnGetDeclaredByMerchant($createdSince = null)
+    public function returnGetDeclaredByMerchant($createdSince = null, $statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
     {
-        list($response) = $this->returnGetDeclaredByMerchantWithHttpInfo($createdSince);
+        list($response) = $this->returnGetDeclaredByMerchantWithHttpInfo($createdSince, $statuses, $reasons, $fromDate, $toDate, $page);
         return $response;
     }
 
@@ -402,16 +407,21 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Return status(es) to filter on (optional)
+     * @param  string[] $reasons Return reason(s) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function returnGetDeclaredByMerchantWithHttpInfo($createdSince = null)
+    public function returnGetDeclaredByMerchantWithHttpInfo($createdSince = null, $statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse';
-        $request = $this->returnGetDeclaredByMerchantRequest($createdSince);
+        $request = $this->returnGetDeclaredByMerchantRequest($createdSince, $statuses, $reasons, $fromDate, $toDate, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -477,14 +487,19 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Return status(es) to filter on (optional)
+     * @param  string[] $reasons Return reason(s) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsync($createdSince = null)
+    public function returnGetDeclaredByMerchantAsync($createdSince = null, $statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
     {
-        return $this->returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince)
+        return $this->returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince, $statuses, $reasons, $fromDate, $toDate, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -497,15 +512,20 @@ class ReturnApi
      *
      * Get Returns
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Return status(es) to filter on (optional)
+     * @param  string[] $reasons Return reason(s) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince = null)
+    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($createdSince = null, $statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse';
-        $request = $this->returnGetDeclaredByMerchantRequest($createdSince);
+        $request = $this->returnGetDeclaredByMerchantRequest($createdSince, $statuses, $reasons, $fromDate, $toDate, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -547,12 +567,17 @@ class ReturnApi
     /**
      * Create request for operation 'returnGetDeclaredByMerchant'
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Return status(es) to filter on (optional)
+     * @param  string[] $reasons Return reason(s) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function returnGetDeclaredByMerchantRequest($createdSince = null)
+    protected function returnGetDeclaredByMerchantRequest($createdSince = null, $statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
     {
 
         $resourcePath = '/v2/returns/channel';
@@ -565,6 +590,32 @@ class ReturnApi
         // query params
         if ($createdSince !== null) {
             $queryParams['createdSince'] = ObjectSerializer::toQueryValue($createdSince);
+        }
+        // query params
+        if (is_array($statuses)) {
+            $queryParams['statuses'] = $statuses;
+        } else
+        if ($statuses !== null) {
+            $queryParams['statuses'] = ObjectSerializer::toQueryValue($statuses);
+        }
+        // query params
+        if (is_array($reasons)) {
+            $queryParams['reasons'] = $reasons;
+        } else
+        if ($reasons !== null) {
+            $queryParams['reasons'] = ObjectSerializer::toQueryValue($reasons);
+        }
+        // query params
+        if ($fromDate !== null) {
+            $queryParams['fromDate'] = ObjectSerializer::toQueryValue($fromDate);
+        }
+        // query params
+        if ($toDate !== null) {
+            $queryParams['toDate'] = ObjectSerializer::toQueryValue($toDate);
+        }
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
         }
 
 
