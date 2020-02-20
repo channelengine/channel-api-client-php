@@ -61,6 +61,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'shippingAddress' => '\ChannelEngine\Channel\ApiClient\Model\ChannelAddressRequest',
         'channelOrderNo' => 'string',
         'isBusinessOrder' => 'bool',
+        'keyIsMerchantProductNo' => 'bool',
         'lines' => '\ChannelEngine\Channel\ApiClient\Model\ChannelOrderLineRequest[]',
         'phone' => 'string',
         'email' => 'string',
@@ -84,6 +85,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'shippingAddress' => null,
         'channelOrderNo' => null,
         'isBusinessOrder' => null,
+        'keyIsMerchantProductNo' => null,
         'lines' => null,
         'phone' => null,
         'email' => null,
@@ -128,6 +130,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'shippingAddress' => 'ShippingAddress',
         'channelOrderNo' => 'ChannelOrderNo',
         'isBusinessOrder' => 'IsBusinessOrder',
+        'keyIsMerchantProductNo' => 'KeyIsMerchantProductNo',
         'lines' => 'Lines',
         'phone' => 'Phone',
         'email' => 'Email',
@@ -151,6 +154,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'shippingAddress' => 'setShippingAddress',
         'channelOrderNo' => 'setChannelOrderNo',
         'isBusinessOrder' => 'setIsBusinessOrder',
+        'keyIsMerchantProductNo' => 'setKeyIsMerchantProductNo',
         'lines' => 'setLines',
         'phone' => 'setPhone',
         'email' => 'setEmail',
@@ -174,6 +178,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         'shippingAddress' => 'getShippingAddress',
         'channelOrderNo' => 'getChannelOrderNo',
         'isBusinessOrder' => 'getIsBusinessOrder',
+        'keyIsMerchantProductNo' => 'getKeyIsMerchantProductNo',
         'lines' => 'getLines',
         'phone' => 'getPhone',
         'email' => 'getEmail',
@@ -251,6 +256,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
         $this->container['shippingAddress'] = isset($data['shippingAddress']) ? $data['shippingAddress'] : null;
         $this->container['channelOrderNo'] = isset($data['channelOrderNo']) ? $data['channelOrderNo'] : null;
         $this->container['isBusinessOrder'] = isset($data['isBusinessOrder']) ? $data['isBusinessOrder'] : null;
+        $this->container['keyIsMerchantProductNo'] = isset($data['keyIsMerchantProductNo']) ? $data['keyIsMerchantProductNo'] : null;
         $this->container['lines'] = isset($data['lines']) ? $data['lines'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
@@ -471,6 +477,30 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     public function setIsBusinessOrder($isBusinessOrder)
     {
         $this->container['isBusinessOrder'] = $isBusinessOrder;
+
+        return $this;
+    }
+
+    /**
+     * Gets keyIsMerchantProductNo
+     *
+     * @return bool
+     */
+    public function getKeyIsMerchantProductNo()
+    {
+        return $this->container['keyIsMerchantProductNo'];
+    }
+
+    /**
+     * Sets keyIsMerchantProductNo
+     *
+     * @param bool $keyIsMerchantProductNo Optional. Is the MPN used as key for the product (default value is false).
+     *
+     * @return $this
+     */
+    public function setKeyIsMerchantProductNo($keyIsMerchantProductNo)
+    {
+        $this->container['keyIsMerchantProductNo'] = $keyIsMerchantProductNo;
 
         return $this;
     }
@@ -719,7 +749,7 @@ class ChannelOrderRequest implements ModelInterface, ArrayAccess
     /**
      * Sets orderDate
      *
-     * @param \DateTime $orderDate The date the order was done
+     * @param \DateTime $orderDate The date the order was created at the channel
      *
      * @return $this
      */

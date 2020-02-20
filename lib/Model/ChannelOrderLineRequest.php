@@ -58,6 +58,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'channelProductNo' => 'string',
+        'merchantProductNo' => 'string',
         'quantity' => 'int',
         'cancellationRequestedQuantity' => 'int',
         'unitPriceInclVat' => 'float',
@@ -73,6 +74,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'channelProductNo' => null,
+        'merchantProductNo' => null,
         'quantity' => 'int32',
         'cancellationRequestedQuantity' => 'int32',
         'unitPriceInclVat' => 'decimal',
@@ -109,6 +111,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'channelProductNo' => 'ChannelProductNo',
+        'merchantProductNo' => 'MerchantProductNo',
         'quantity' => 'Quantity',
         'cancellationRequestedQuantity' => 'CancellationRequestedQuantity',
         'unitPriceInclVat' => 'UnitPriceInclVat',
@@ -124,6 +127,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'channelProductNo' => 'setChannelProductNo',
+        'merchantProductNo' => 'setMerchantProductNo',
         'quantity' => 'setQuantity',
         'cancellationRequestedQuantity' => 'setCancellationRequestedQuantity',
         'unitPriceInclVat' => 'setUnitPriceInclVat',
@@ -139,6 +143,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'channelProductNo' => 'getChannelProductNo',
+        'merchantProductNo' => 'getMerchantProductNo',
         'quantity' => 'getQuantity',
         'cancellationRequestedQuantity' => 'getCancellationRequestedQuantity',
         'unitPriceInclVat' => 'getUnitPriceInclVat',
@@ -235,6 +240,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['channelProductNo'] = isset($data['channelProductNo']) ? $data['channelProductNo'] : null;
+        $this->container['merchantProductNo'] = isset($data['merchantProductNo']) ? $data['merchantProductNo'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
         $this->container['cancellationRequestedQuantity'] = isset($data['cancellationRequestedQuantity']) ? $data['cancellationRequestedQuantity'] : null;
         $this->container['unitPriceInclVat'] = isset($data['unitPriceInclVat']) ? $data['unitPriceInclVat'] : null;
@@ -261,6 +267,14 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
 
         if ((mb_strlen($this->container['channelProductNo']) < 0)) {
             $invalidProperties[] = "invalid value for 'channelProductNo', the character length must be bigger than or equal to 0.";
+        }
+
+        if (!is_null($this->container['merchantProductNo']) && (mb_strlen($this->container['merchantProductNo']) > 50)) {
+            $invalidProperties[] = "invalid value for 'merchantProductNo', the character length must be smaller than or equal to 50.";
+        }
+
+        if (!is_null($this->container['merchantProductNo']) && (mb_strlen($this->container['merchantProductNo']) < 0)) {
+            $invalidProperties[] = "invalid value for 'merchantProductNo', the character length must be bigger than or equal to 0.";
         }
 
         if ($this->container['quantity'] === null) {
@@ -305,7 +319,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
     /**
      * Sets channelProductNo
      *
-     * @param string $channelProductNo The unique order reference used by the channel
+     * @param string $channelProductNo The unique product reference used by the channel
      *
      * @return $this
      */
@@ -319,6 +333,37 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess
         }
 
         $this->container['channelProductNo'] = $channelProductNo;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchantProductNo
+     *
+     * @return string
+     */
+    public function getMerchantProductNo()
+    {
+        return $this->container['merchantProductNo'];
+    }
+
+    /**
+     * Sets merchantProductNo
+     *
+     * @param string $merchantProductNo The unique product reference used by the merchant
+     *
+     * @return $this
+     */
+    public function setMerchantProductNo($merchantProductNo)
+    {
+        if (!is_null($merchantProductNo) && (mb_strlen($merchantProductNo) > 50)) {
+            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineRequest., must be smaller than or equal to 50.');
+        }
+        if (!is_null($merchantProductNo) && (mb_strlen($merchantProductNo) < 0)) {
+            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineRequest., must be bigger than or equal to 0.');
+        }
+
+        $this->container['merchantProductNo'] = $merchantProductNo;
 
         return $this;
     }

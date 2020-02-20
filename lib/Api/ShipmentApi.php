@@ -92,15 +92,20 @@ class ShipmentApi
      *
      * Get Shipments
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Shipment status(es) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  string[] $channelOrderNos Filter on the unique references (ids) as used by the channel. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelShipmentResponse
      */
-    public function shipmentIndex($createdSince = null)
+    public function shipmentIndex($createdSince = null, $statuses = null, $fromDate = null, $toDate = null, $channelOrderNos = null, $page = null)
     {
-        list($response) = $this->shipmentIndexWithHttpInfo($createdSince);
+        list($response) = $this->shipmentIndexWithHttpInfo($createdSince, $statuses, $fromDate, $toDate, $channelOrderNos, $page);
         return $response;
     }
 
@@ -109,16 +114,21 @@ class ShipmentApi
      *
      * Get Shipments
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Shipment status(es) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  string[] $channelOrderNos Filter on the unique references (ids) as used by the channel. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelShipmentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function shipmentIndexWithHttpInfo($createdSince = null)
+    public function shipmentIndexWithHttpInfo($createdSince = null, $statuses = null, $fromDate = null, $toDate = null, $channelOrderNos = null, $page = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelShipmentResponse';
-        $request = $this->shipmentIndexRequest($createdSince);
+        $request = $this->shipmentIndexRequest($createdSince, $statuses, $fromDate, $toDate, $channelOrderNos, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -184,14 +194,19 @@ class ShipmentApi
      *
      * Get Shipments
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Shipment status(es) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  string[] $channelOrderNos Filter on the unique references (ids) as used by the channel. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function shipmentIndexAsync($createdSince = null)
+    public function shipmentIndexAsync($createdSince = null, $statuses = null, $fromDate = null, $toDate = null, $channelOrderNos = null, $page = null)
     {
-        return $this->shipmentIndexAsyncWithHttpInfo($createdSince)
+        return $this->shipmentIndexAsyncWithHttpInfo($createdSince, $statuses, $fromDate, $toDate, $channelOrderNos, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -204,15 +219,20 @@ class ShipmentApi
      *
      * Get Shipments
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Shipment status(es) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  string[] $channelOrderNos Filter on the unique references (ids) as used by the channel. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function shipmentIndexAsyncWithHttpInfo($createdSince = null)
+    public function shipmentIndexAsyncWithHttpInfo($createdSince = null, $statuses = null, $fromDate = null, $toDate = null, $channelOrderNos = null, $page = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelShipmentResponse';
-        $request = $this->shipmentIndexRequest($createdSince);
+        $request = $this->shipmentIndexRequest($createdSince, $statuses, $fromDate, $toDate, $channelOrderNos, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -254,12 +274,17 @@ class ShipmentApi
     /**
      * Create request for operation 'shipmentIndex'
      *
-     * @param  \DateTime $createdSince  (optional)
+     * @param  \DateTime $createdSince Deprecated, please use FromDate instead. (optional)
+     * @param  string[] $statuses Shipment status(es) to filter on (optional)
+     * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
+     * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  string[] $channelOrderNos Filter on the unique references (ids) as used by the channel. (optional)
+     * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function shipmentIndexRequest($createdSince = null)
+    protected function shipmentIndexRequest($createdSince = null, $statuses = null, $fromDate = null, $toDate = null, $channelOrderNos = null, $page = null)
     {
 
         $resourcePath = '/v2/shipments';
@@ -272,6 +297,32 @@ class ShipmentApi
         // query params
         if ($createdSince !== null) {
             $queryParams['createdSince'] = ObjectSerializer::toQueryValue($createdSince);
+        }
+        // query params
+        if (is_array($statuses)) {
+            $queryParams['statuses'] = $statuses;
+        } else
+        if ($statuses !== null) {
+            $queryParams['statuses'] = ObjectSerializer::toQueryValue($statuses);
+        }
+        // query params
+        if ($fromDate !== null) {
+            $queryParams['fromDate'] = ObjectSerializer::toQueryValue($fromDate);
+        }
+        // query params
+        if ($toDate !== null) {
+            $queryParams['toDate'] = ObjectSerializer::toQueryValue($toDate);
+        }
+        // query params
+        if (is_array($channelOrderNos)) {
+            $queryParams['channelOrderNos'] = $channelOrderNos;
+        } else
+        if ($channelOrderNos !== null) {
+            $queryParams['channelOrderNos'] = ObjectSerializer::toQueryValue($channelOrderNos);
+        }
+        // query params
+        if ($page !== null) {
+            $queryParams['page'] = ObjectSerializer::toQueryValue($page);
         }
 
 

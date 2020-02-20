@@ -58,6 +58,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'channelProductNo' => 'string',
+        'merchantProductNo' => 'string',
         'price' => 'float',
         'stock' => 'int'
     ];
@@ -69,6 +70,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'channelProductNo' => null,
+        'merchantProductNo' => null,
         'price' => 'decimal',
         'stock' => 'int32'
     ];
@@ -101,6 +103,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'channelProductNo' => 'ChannelProductNo',
+        'merchantProductNo' => 'MerchantProductNo',
         'price' => 'Price',
         'stock' => 'Stock'
     ];
@@ -112,6 +115,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'channelProductNo' => 'setChannelProductNo',
+        'merchantProductNo' => 'setMerchantProductNo',
         'price' => 'setPrice',
         'stock' => 'setStock'
     ];
@@ -123,6 +127,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'channelProductNo' => 'getChannelProductNo',
+        'merchantProductNo' => 'getMerchantProductNo',
         'price' => 'getPrice',
         'stock' => 'getStock'
     ];
@@ -188,6 +193,7 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['channelProductNo'] = isset($data['channelProductNo']) ? $data['channelProductNo'] : null;
+        $this->container['merchantProductNo'] = isset($data['merchantProductNo']) ? $data['merchantProductNo'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['stock'] = isset($data['stock']) ? $data['stock'] : null;
     }
@@ -236,6 +242,30 @@ class ChannelOfferResponse implements ModelInterface, ArrayAccess
     public function setChannelProductNo($channelProductNo)
     {
         $this->container['channelProductNo'] = $channelProductNo;
+
+        return $this;
+    }
+
+    /**
+     * Gets merchantProductNo
+     *
+     * @return string
+     */
+    public function getMerchantProductNo()
+    {
+        return $this->container['merchantProductNo'];
+    }
+
+    /**
+     * Sets merchantProductNo
+     *
+     * @param string $merchantProductNo merchantProductNo
+     *
+     * @return $this
+     */
+    public function setMerchantProductNo($merchantProductNo)
+    {
+        $this->container['merchantProductNo'] = $merchantProductNo;
 
         return $this;
     }

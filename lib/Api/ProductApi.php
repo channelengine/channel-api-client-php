@@ -370,14 +370,15 @@ class ProductApi
      * Acknowledge Product Offer Changes
      *
      * @param  string[] $changes The channel references of the updated products (required)
+     * @param  bool $keyIsMpn If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\ApiResponse
      */
-    public function productAcknowledgeOfferChanges($changes)
+    public function productAcknowledgeOfferChanges($changes, $keyIsMpn = 'false')
     {
-        list($response) = $this->productAcknowledgeOfferChangesWithHttpInfo($changes);
+        list($response) = $this->productAcknowledgeOfferChangesWithHttpInfo($changes, $keyIsMpn);
         return $response;
     }
 
@@ -387,15 +388,16 @@ class ProductApi
      * Acknowledge Product Offer Changes
      *
      * @param  string[] $changes The channel references of the updated products (required)
+     * @param  bool $keyIsMpn If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\ApiResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function productAcknowledgeOfferChangesWithHttpInfo($changes)
+    public function productAcknowledgeOfferChangesWithHttpInfo($changes, $keyIsMpn = 'false')
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\ApiResponse';
-        $request = $this->productAcknowledgeOfferChangesRequest($changes);
+        $request = $this->productAcknowledgeOfferChangesRequest($changes, $keyIsMpn);
 
         try {
             $options = $this->createHttpClientOption();
@@ -462,13 +464,14 @@ class ProductApi
      * Acknowledge Product Offer Changes
      *
      * @param  string[] $changes The channel references of the updated products (required)
+     * @param  bool $keyIsMpn If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productAcknowledgeOfferChangesAsync($changes)
+    public function productAcknowledgeOfferChangesAsync($changes, $keyIsMpn = 'false')
     {
-        return $this->productAcknowledgeOfferChangesAsyncWithHttpInfo($changes)
+        return $this->productAcknowledgeOfferChangesAsyncWithHttpInfo($changes, $keyIsMpn)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -482,14 +485,15 @@ class ProductApi
      * Acknowledge Product Offer Changes
      *
      * @param  string[] $changes The channel references of the updated products (required)
+     * @param  bool $keyIsMpn If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function productAcknowledgeOfferChangesAsyncWithHttpInfo($changes)
+    public function productAcknowledgeOfferChangesAsyncWithHttpInfo($changes, $keyIsMpn = 'false')
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\ApiResponse';
-        $request = $this->productAcknowledgeOfferChangesRequest($changes);
+        $request = $this->productAcknowledgeOfferChangesRequest($changes, $keyIsMpn);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -532,11 +536,12 @@ class ProductApi
      * Create request for operation 'productAcknowledgeOfferChanges'
      *
      * @param  string[] $changes The channel references of the updated products (required)
+     * @param  bool $keyIsMpn If set to true, changes has to be a list of merchant references instead of channel references (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function productAcknowledgeOfferChangesRequest($changes)
+    protected function productAcknowledgeOfferChangesRequest($changes, $keyIsMpn = 'false')
     {
         // verify the required parameter 'changes' is set
         if ($changes === null) {
@@ -552,6 +557,10 @@ class ProductApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($keyIsMpn !== null) {
+            $queryParams['keyIsMpn'] = ObjectSerializer::toQueryValue($keyIsMpn);
+        }
 
 
         // body params
