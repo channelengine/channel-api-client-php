@@ -1,6 +1,6 @@
 <?php
 /**
- * ChannelOrderLineRequest
+ * ChannelOrderLineResponse
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * ChannelOrderLineRequest Class Doc Comment
+ * ChannelOrderLineResponse Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
@@ -42,7 +42,7 @@ use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class ChannelOrderLineResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ChannelOrderLineRequest';
+    protected static $openAPIModelName = 'ChannelOrderLineResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,6 +59,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
+        'status' => '\ChannelEngine\Channel\ApiClient\Model\OrderStatusView',
+        'isFulfillmentByMarketplace' => 'bool',
+        'gtin' => 'string',
+        'description' => 'string',
+        'unitVat' => 'float',
+        'lineTotalInclVat' => 'float',
+        'lineVat' => 'float',
+        'originalUnitPriceInclVat' => 'float',
+        'originalUnitVat' => 'float',
+        'originalLineTotalInclVat' => 'float',
+        'originalLineVat' => 'float',
+        'originalFeeFixed' => 'float',
+        'bundleProductMerchantProductNo' => 'string',
         'channelProductNo' => 'string',
         'merchantProductNo' => 'string',
         'quantity' => 'int',
@@ -78,6 +91,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'status' => null,
+        'isFulfillmentByMarketplace' => null,
+        'gtin' => null,
+        'description' => null,
+        'unitVat' => 'decimal',
+        'lineTotalInclVat' => 'decimal',
+        'lineVat' => 'decimal',
+        'originalUnitPriceInclVat' => 'decimal',
+        'originalUnitVat' => 'decimal',
+        'originalLineTotalInclVat' => 'decimal',
+        'originalLineVat' => 'decimal',
+        'originalFeeFixed' => 'decimal',
+        'bundleProductMerchantProductNo' => null,
         'channelProductNo' => null,
         'merchantProductNo' => null,
         'quantity' => 'int32',
@@ -116,6 +142,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
+        'status' => 'Status',
+        'isFulfillmentByMarketplace' => 'IsFulfillmentByMarketplace',
+        'gtin' => 'Gtin',
+        'description' => 'Description',
+        'unitVat' => 'UnitVat',
+        'lineTotalInclVat' => 'LineTotalInclVat',
+        'lineVat' => 'LineVat',
+        'originalUnitPriceInclVat' => 'OriginalUnitPriceInclVat',
+        'originalUnitVat' => 'OriginalUnitVat',
+        'originalLineTotalInclVat' => 'OriginalLineTotalInclVat',
+        'originalLineVat' => 'OriginalLineVat',
+        'originalFeeFixed' => 'OriginalFeeFixed',
+        'bundleProductMerchantProductNo' => 'BundleProductMerchantProductNo',
         'channelProductNo' => 'ChannelProductNo',
         'merchantProductNo' => 'MerchantProductNo',
         'quantity' => 'Quantity',
@@ -133,6 +172,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
+        'status' => 'setStatus',
+        'isFulfillmentByMarketplace' => 'setIsFulfillmentByMarketplace',
+        'gtin' => 'setGtin',
+        'description' => 'setDescription',
+        'unitVat' => 'setUnitVat',
+        'lineTotalInclVat' => 'setLineTotalInclVat',
+        'lineVat' => 'setLineVat',
+        'originalUnitPriceInclVat' => 'setOriginalUnitPriceInclVat',
+        'originalUnitVat' => 'setOriginalUnitVat',
+        'originalLineTotalInclVat' => 'setOriginalLineTotalInclVat',
+        'originalLineVat' => 'setOriginalLineVat',
+        'originalFeeFixed' => 'setOriginalFeeFixed',
+        'bundleProductMerchantProductNo' => 'setBundleProductMerchantProductNo',
         'channelProductNo' => 'setChannelProductNo',
         'merchantProductNo' => 'setMerchantProductNo',
         'quantity' => 'setQuantity',
@@ -150,6 +202,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
+        'status' => 'getStatus',
+        'isFulfillmentByMarketplace' => 'getIsFulfillmentByMarketplace',
+        'gtin' => 'getGtin',
+        'description' => 'getDescription',
+        'unitVat' => 'getUnitVat',
+        'lineTotalInclVat' => 'getLineTotalInclVat',
+        'lineVat' => 'getLineVat',
+        'originalUnitPriceInclVat' => 'getOriginalUnitPriceInclVat',
+        'originalUnitVat' => 'getOriginalUnitVat',
+        'originalLineTotalInclVat' => 'getOriginalLineTotalInclVat',
+        'originalLineVat' => 'getOriginalLineVat',
+        'originalFeeFixed' => 'getOriginalFeeFixed',
+        'bundleProductMerchantProductNo' => 'getBundleProductMerchantProductNo',
         'channelProductNo' => 'getChannelProductNo',
         'merchantProductNo' => 'getMerchantProductNo',
         'quantity' => 'getQuantity',
@@ -218,6 +283,19 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['isFulfillmentByMarketplace'] = $data['isFulfillmentByMarketplace'] ?? null;
+        $this->container['gtin'] = $data['gtin'] ?? null;
+        $this->container['description'] = $data['description'] ?? null;
+        $this->container['unitVat'] = $data['unitVat'] ?? null;
+        $this->container['lineTotalInclVat'] = $data['lineTotalInclVat'] ?? null;
+        $this->container['lineVat'] = $data['lineVat'] ?? null;
+        $this->container['originalUnitPriceInclVat'] = $data['originalUnitPriceInclVat'] ?? null;
+        $this->container['originalUnitVat'] = $data['originalUnitVat'] ?? null;
+        $this->container['originalLineTotalInclVat'] = $data['originalLineTotalInclVat'] ?? null;
+        $this->container['originalLineVat'] = $data['originalLineVat'] ?? null;
+        $this->container['originalFeeFixed'] = $data['originalFeeFixed'] ?? null;
+        $this->container['bundleProductMerchantProductNo'] = $data['bundleProductMerchantProductNo'] ?? null;
         $this->container['channelProductNo'] = $data['channelProductNo'] ?? null;
         $this->container['merchantProductNo'] = $data['merchantProductNo'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
@@ -279,6 +357,318 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
+     * Gets status
+     *
+     * @return \ChannelEngine\Channel\ApiClient\Model\OrderStatusView|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param \ChannelEngine\Channel\ApiClient\Model\OrderStatusView|null $status status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets isFulfillmentByMarketplace
+     *
+     * @return bool|null
+     */
+    public function getIsFulfillmentByMarketplace()
+    {
+        return $this->container['isFulfillmentByMarketplace'];
+    }
+
+    /**
+     * Sets isFulfillmentByMarketplace
+     *
+     * @param bool|null $isFulfillmentByMarketplace Is the order fulfilled by the marketplace (amazon: FBA, bol: LVB, etc.)?.
+     *
+     * @return self
+     */
+    public function setIsFulfillmentByMarketplace($isFulfillmentByMarketplace)
+    {
+        $this->container['isFulfillmentByMarketplace'] = $isFulfillmentByMarketplace;
+
+        return $this;
+    }
+
+    /**
+     * Gets gtin
+     *
+     * @return string|null
+     */
+    public function getGtin()
+    {
+        return $this->container['gtin'];
+    }
+
+    /**
+     * Sets gtin
+     *
+     * @param string|null $gtin Either the GTIN (EAN, ISBN, UPC etc) provided by the channel, or the the GTIN belonging to the MerchantProductNo in ChannelEngine.
+     *
+     * @return self
+     */
+    public function setGtin($gtin)
+    {
+        $this->container['gtin'] = $gtin;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The product description (or title) provided by the channel.
+     *
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets unitVat
+     *
+     * @return float|null
+     */
+    public function getUnitVat()
+    {
+        return $this->container['unitVat'];
+    }
+
+    /**
+     * Sets unitVat
+     *
+     * @param float|null $unitVat The total amount of VAT charged over the value of a single unit of the ordered product  (in the shop's base currency calculated using the exchange rate at the time of ordering).
+     *
+     * @return self
+     */
+    public function setUnitVat($unitVat)
+    {
+        $this->container['unitVat'] = $unitVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets lineTotalInclVat
+     *
+     * @return float|null
+     */
+    public function getLineTotalInclVat()
+    {
+        return $this->container['lineTotalInclVat'];
+    }
+
+    /**
+     * Sets lineTotalInclVat
+     *
+     * @param float|null $lineTotalInclVat The total value of the order line (quantity * unit price) including VAT  (in the shop's base currency calculated using the exchange rate at the time of ordering).
+     *
+     * @return self
+     */
+    public function setLineTotalInclVat($lineTotalInclVat)
+    {
+        $this->container['lineTotalInclVat'] = $lineTotalInclVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets lineVat
+     *
+     * @return float|null
+     */
+    public function getLineVat()
+    {
+        return $this->container['lineVat'];
+    }
+
+    /**
+     * Sets lineVat
+     *
+     * @param float|null $lineVat The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the shop's base currency calculated using the exchange rate at the time of ordering).
+     *
+     * @return self
+     */
+    public function setLineVat($lineVat)
+    {
+        $this->container['lineVat'] = $lineVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalUnitPriceInclVat
+     *
+     * @return float|null
+     */
+    public function getOriginalUnitPriceInclVat()
+    {
+        return $this->container['originalUnitPriceInclVat'];
+    }
+
+    /**
+     * Sets originalUnitPriceInclVat
+     *
+     * @param float|null $originalUnitPriceInclVat The value of a single unit of the ordered product including VAT  (in the currency in which the order was paid for, see CurrencyCode).
+     *
+     * @return self
+     */
+    public function setOriginalUnitPriceInclVat($originalUnitPriceInclVat)
+    {
+        $this->container['originalUnitPriceInclVat'] = $originalUnitPriceInclVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalUnitVat
+     *
+     * @return float|null
+     */
+    public function getOriginalUnitVat()
+    {
+        return $this->container['originalUnitVat'];
+    }
+
+    /**
+     * Sets originalUnitVat
+     *
+     * @param float|null $originalUnitVat The total amount of VAT charged over the value of a single unit of the ordered product  (in the currency in which the order was paid for, see CurrencyCode).
+     *
+     * @return self
+     */
+    public function setOriginalUnitVat($originalUnitVat)
+    {
+        $this->container['originalUnitVat'] = $originalUnitVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalLineTotalInclVat
+     *
+     * @return float|null
+     */
+    public function getOriginalLineTotalInclVat()
+    {
+        return $this->container['originalLineTotalInclVat'];
+    }
+
+    /**
+     * Sets originalLineTotalInclVat
+     *
+     * @param float|null $originalLineTotalInclVat The total value of the order line (quantity * unit price) including VAT  (in the currency in which the order was paid for, see CurrencyCode).
+     *
+     * @return self
+     */
+    public function setOriginalLineTotalInclVat($originalLineTotalInclVat)
+    {
+        $this->container['originalLineTotalInclVat'] = $originalLineTotalInclVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalLineVat
+     *
+     * @return float|null
+     */
+    public function getOriginalLineVat()
+    {
+        return $this->container['originalLineVat'];
+    }
+
+    /**
+     * Sets originalLineVat
+     *
+     * @param float|null $originalLineVat The total amount of VAT charged over the total value of the order line (quantity * unit price)  (in the currency in which the order was paid for, see CurrencyCode).
+     *
+     * @return self
+     */
+    public function setOriginalLineVat($originalLineVat)
+    {
+        $this->container['originalLineVat'] = $originalLineVat;
+
+        return $this;
+    }
+
+    /**
+     * Gets originalFeeFixed
+     *
+     * @return float|null
+     */
+    public function getOriginalFeeFixed()
+    {
+        return $this->container['originalFeeFixed'];
+    }
+
+    /**
+     * Sets originalFeeFixed
+     *
+     * @param float|null $originalFeeFixed A percentage fee that is charged by the Channel for this orderline.  This fee rate is based on the currency of client  This field is optional, send 0 if not applicable.
+     *
+     * @return self
+     */
+    public function setOriginalFeeFixed($originalFeeFixed)
+    {
+        $this->container['originalFeeFixed'] = $originalFeeFixed;
+
+        return $this;
+    }
+
+    /**
+     * Gets bundleProductMerchantProductNo
+     *
+     * @return string|null
+     */
+    public function getBundleProductMerchantProductNo()
+    {
+        return $this->container['bundleProductMerchantProductNo'];
+    }
+
+    /**
+     * Sets bundleProductMerchantProductNo
+     *
+     * @param string|null $bundleProductMerchantProductNo If the product is ordered part of a bundle, this field contains the MerchantProductNo of  the product bundle.
+     *
+     * @return self
+     */
+    public function setBundleProductMerchantProductNo($bundleProductMerchantProductNo)
+    {
+        $this->container['bundleProductMerchantProductNo'] = $bundleProductMerchantProductNo;
+
+        return $this;
+    }
+
+    /**
      * Gets channelProductNo
      *
      * @return string
@@ -298,10 +688,10 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
     public function setChannelProductNo($channelProductNo)
     {
         if ((mb_strlen($channelProductNo) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $channelProductNo when calling ChannelOrderLineRequest., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $channelProductNo when calling ChannelOrderLineResponse., must be smaller than or equal to 50.');
         }
         if ((mb_strlen($channelProductNo) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $channelProductNo when calling ChannelOrderLineRequest., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $channelProductNo when calling ChannelOrderLineResponse., must be bigger than or equal to 0.');
         }
 
         $this->container['channelProductNo'] = $channelProductNo;
@@ -329,10 +719,10 @@ class ChannelOrderLineRequest implements ModelInterface, ArrayAccess, \JsonSeria
     public function setMerchantProductNo($merchantProductNo)
     {
         if (!is_null($merchantProductNo) && (mb_strlen($merchantProductNo) > 50)) {
-            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineRequest., must be smaller than or equal to 50.');
+            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineResponse., must be smaller than or equal to 50.');
         }
         if (!is_null($merchantProductNo) && (mb_strlen($merchantProductNo) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineRequest., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $merchantProductNo when calling ChannelOrderLineResponse., must be bigger than or equal to 0.');
         }
 
         $this->container['merchantProductNo'] = $merchantProductNo;

@@ -1,6 +1,6 @@
 <?php
 /**
- * Condition
+ * DataChangesProductType
  *
  * PHP version 7.2
  *
@@ -30,26 +30,22 @@ namespace ChannelEngine\Channel\ApiClient\Model;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * Condition Class Doc Comment
+ * DataChangesProductType Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Condition
+class DataChangesProductType
 {
     /**
      * Possible values of this enum
      */
-    const _NEW = 'NEW';
-    const NEW_REFURBISHED = 'NEW_REFURBISHED';
-    const USED_AS_NEW = 'USED_AS_NEW';
-    const USED_GOOD = 'USED_GOOD';
-    const USED_REASONABLE = 'USED_REASONABLE';
-    const USED_MEDIOCRE = 'USED_MEDIOCRE';
-    const UNKNOWN = 'UNKNOWN';
-    const USED_VERY_GOOD = 'USED_VERY_GOOD';
+    const SINGLE = 'SINGLE';
+    const PARENT = 'PARENT';
+    const CHILD = 'CHILD';
+    const GRANDPARENT = 'GRANDPARENT';
     
     /**
      * Gets allowable values of the enum
@@ -58,14 +54,10 @@ class Condition
     public static function getAllowableEnumValues()
     {
         return [
-            self::_NEW,
-            self::NEW_REFURBISHED,
-            self::USED_AS_NEW,
-            self::USED_GOOD,
-            self::USED_REASONABLE,
-            self::USED_MEDIOCRE,
-            self::UNKNOWN,
-            self::USED_VERY_GOOD,
+            self::SINGLE,
+            self::PARENT,
+            self::CHILD,
+            self::GRANDPARENT,
         ];
     }
 }
