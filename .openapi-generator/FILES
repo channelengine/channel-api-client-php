@@ -44,7 +44,6 @@ lib/Model/OrderStatusView.php
 lib/Model/ReturnReason.php
 lib/Model/ReturnStatus.php
 lib/Model/ShipmentLineStatus.php
-lib/Model/ShipmentStatus.php
 lib/Model/SingleOfChannelProductChangesResponse.php
 lib/Model/VatRateType.php
 lib/ObjectSerializer.php
