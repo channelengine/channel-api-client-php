@@ -1,6 +1,6 @@
 <?php
 /**
- * CollectionOfChannelOfferResponse
+ * Operation
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * CollectionOfChannelOfferResponse Class Doc Comment
+ * Operation Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
@@ -42,7 +42,7 @@ use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CollectionOfChannelOfferResponse';
+    protected static $openAPIModelName = 'Operation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,15 +59,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content' => '\ChannelEngine\Channel\ApiClient\Model\ChannelOfferResponse[]',
-        'count' => 'int',
-        'totalCount' => 'int',
-        'itemsPerPage' => 'int',
-        'statusCode' => 'int',
-        'logId' => 'int',
-        'success' => 'bool',
-        'message' => 'string',
-        'validationErrors' => 'array<string,string[]>'
+        'op' => 'string',
+        'value' => 'object',
+        'path' => 'string'
     ];
 
     /**
@@ -78,15 +72,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'content' => null,
-        'count' => 'int32',
-        'totalCount' => 'int32',
-        'itemsPerPage' => 'int32',
-        'statusCode' => 'int32',
-        'logId' => 'int32',
-        'success' => null,
-        'message' => null,
-        'validationErrors' => null
+        'op' => null,
+        'value' => null,
+        'path' => null
     ];
 
     /**
@@ -116,15 +104,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $attributeMap = [
-        'content' => 'Content',
-        'count' => 'Count',
-        'totalCount' => 'TotalCount',
-        'itemsPerPage' => 'ItemsPerPage',
-        'statusCode' => 'StatusCode',
-        'logId' => 'LogId',
-        'success' => 'Success',
-        'message' => 'Message',
-        'validationErrors' => 'ValidationErrors'
+        'op' => 'op',
+        'value' => 'value',
+        'path' => 'path'
     ];
 
     /**
@@ -133,15 +115,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $setters = [
-        'content' => 'setContent',
-        'count' => 'setCount',
-        'totalCount' => 'setTotalCount',
-        'itemsPerPage' => 'setItemsPerPage',
-        'statusCode' => 'setStatusCode',
-        'logId' => 'setLogId',
-        'success' => 'setSuccess',
-        'message' => 'setMessage',
-        'validationErrors' => 'setValidationErrors'
+        'op' => 'setOp',
+        'value' => 'setValue',
+        'path' => 'setPath'
     ];
 
     /**
@@ -150,15 +126,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
      * @var string[]
      */
     protected static $getters = [
-        'content' => 'getContent',
-        'count' => 'getCount',
-        'totalCount' => 'getTotalCount',
-        'itemsPerPage' => 'getItemsPerPage',
-        'statusCode' => 'getStatusCode',
-        'logId' => 'getLogId',
-        'success' => 'getSuccess',
-        'message' => 'getMessage',
-        'validationErrors' => 'getValidationErrors'
+        'op' => 'getOp',
+        'value' => 'getValue',
+        'path' => 'getPath'
     ];
 
     /**
@@ -218,15 +188,9 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
      */
     public function __construct(array $data = null)
     {
-        $this->container['content'] = $data['content'] ?? null;
-        $this->container['count'] = $data['count'] ?? null;
-        $this->container['totalCount'] = $data['totalCount'] ?? null;
-        $this->container['itemsPerPage'] = $data['itemsPerPage'] ?? null;
-        $this->container['statusCode'] = $data['statusCode'] ?? null;
-        $this->container['logId'] = $data['logId'] ?? null;
-        $this->container['success'] = $data['success'] ?? null;
-        $this->container['message'] = $data['message'] ?? null;
-        $this->container['validationErrors'] = $data['validationErrors'] ?? null;
+        $this->container['op'] = $data['op'] ?? null;
+        $this->container['value'] = $data['value'] ?? null;
+        $this->container['path'] = $data['path'] ?? null;
     }
 
     /**
@@ -254,217 +218,73 @@ class CollectionOfChannelOfferResponse implements ModelInterface, ArrayAccess, \
 
 
     /**
-     * Gets content
-     *
-     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelOfferResponse[]|null
-     */
-    public function getContent()
-    {
-        return $this->container['content'];
-    }
-
-    /**
-     * Sets content
-     *
-     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelOfferResponse[]|null $content content
-     *
-     * @return self
-     */
-    public function setContent($content)
-    {
-        $this->container['content'] = $content;
-
-        return $this;
-    }
-
-    /**
-     * Gets count
-     *
-     * @return int|null
-     */
-    public function getCount()
-    {
-        return $this->container['count'];
-    }
-
-    /**
-     * Sets count
-     *
-     * @param int|null $count count
-     *
-     * @return self
-     */
-    public function setCount($count)
-    {
-        $this->container['count'] = $count;
-
-        return $this;
-    }
-
-    /**
-     * Gets totalCount
-     *
-     * @return int|null
-     */
-    public function getTotalCount()
-    {
-        return $this->container['totalCount'];
-    }
-
-    /**
-     * Sets totalCount
-     *
-     * @param int|null $totalCount totalCount
-     *
-     * @return self
-     */
-    public function setTotalCount($totalCount)
-    {
-        $this->container['totalCount'] = $totalCount;
-
-        return $this;
-    }
-
-    /**
-     * Gets itemsPerPage
-     *
-     * @return int|null
-     */
-    public function getItemsPerPage()
-    {
-        return $this->container['itemsPerPage'];
-    }
-
-    /**
-     * Sets itemsPerPage
-     *
-     * @param int|null $itemsPerPage itemsPerPage
-     *
-     * @return self
-     */
-    public function setItemsPerPage($itemsPerPage)
-    {
-        $this->container['itemsPerPage'] = $itemsPerPage;
-
-        return $this;
-    }
-
-    /**
-     * Gets statusCode
-     *
-     * @return int|null
-     */
-    public function getStatusCode()
-    {
-        return $this->container['statusCode'];
-    }
-
-    /**
-     * Sets statusCode
-     *
-     * @param int|null $statusCode statusCode
-     *
-     * @return self
-     */
-    public function setStatusCode($statusCode)
-    {
-        $this->container['statusCode'] = $statusCode;
-
-        return $this;
-    }
-
-    /**
-     * Gets logId
-     *
-     * @return int|null
-     */
-    public function getLogId()
-    {
-        return $this->container['logId'];
-    }
-
-    /**
-     * Sets logId
-     *
-     * @param int|null $logId logId
-     *
-     * @return self
-     */
-    public function setLogId($logId)
-    {
-        $this->container['logId'] = $logId;
-
-        return $this;
-    }
-
-    /**
-     * Gets success
-     *
-     * @return bool|null
-     */
-    public function getSuccess()
-    {
-        return $this->container['success'];
-    }
-
-    /**
-     * Sets success
-     *
-     * @param bool|null $success success
-     *
-     * @return self
-     */
-    public function setSuccess($success)
-    {
-        $this->container['success'] = $success;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
+     * Gets op
      *
      * @return string|null
      */
-    public function getMessage()
+    public function getOp()
     {
-        return $this->container['message'];
+        return $this->container['op'];
     }
 
     /**
-     * Sets message
+     * Sets op
      *
-     * @param string|null $message message
+     * @param string|null $op op
      *
      * @return self
      */
-    public function setMessage($message)
+    public function setOp($op)
     {
-        $this->container['message'] = $message;
+        $this->container['op'] = $op;
 
         return $this;
     }
 
     /**
-     * Gets validationErrors
+     * Gets value
      *
-     * @return array<string,string[]>|null
+     * @return object|null
      */
-    public function getValidationErrors()
+    public function getValue()
     {
-        return $this->container['validationErrors'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets validationErrors
+     * Sets value
      *
-     * @param array<string,string[]>|null $validationErrors validationErrors
+     * @param object|null $value value
      *
      * @return self
      */
-    public function setValidationErrors($validationErrors)
+    public function setValue($value)
     {
-        $this->container['validationErrors'] = $validationErrors;
+        $this->container['value'] = $value;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string|null
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string|null $path path
+     *
+     * @return self
+     */
+    public function setPath($path)
+    {
+        $this->container['path'] = $path;
 
         return $this;
     }
