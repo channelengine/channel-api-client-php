@@ -1,6 +1,6 @@
 {
     "name": "channelengine/channel-api-client-php",
-    "version": "2.9.11",
+    "version": "2.9.12",
     "description": "ChannelEngine API for channels",
     "keywords": [
         "openapitools",
