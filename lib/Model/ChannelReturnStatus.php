@@ -1,6 +1,6 @@
 <?php
 /**
- * ExtraDataType
+ * ChannelReturnStatus
  *
  * PHP version 7.3
  *
@@ -30,25 +30,21 @@ namespace ChannelEngine\Channel\ApiClient\Model;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * ExtraDataType Class Doc Comment
+ * ChannelReturnStatus Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExtraDataType
+class ChannelReturnStatus
 {
     /**
      * Possible values of this enum
      */
-    const TEXT = 'TEXT';
+    const IN_PROGRESS = 'IN_PROGRESS';
 
-    const NUMBER = 'NUMBER';
-
-    const URL = 'URL';
-
-    const IMAGEURL = 'IMAGEURL';
+    const RECEIVED = 'RECEIVED';
 
     /**
      * Gets allowable values of the enum
@@ -57,10 +53,8 @@ class ExtraDataType
     public static function getAllowableEnumValues()
     {
         return [
-            self::TEXT,
-            self::NUMBER,
-            self::URL,
-            self::IMAGEURL
+            self::IN_PROGRESS,
+            self::RECEIVED
         ];
     }
 }

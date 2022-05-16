@@ -1,6 +1,6 @@
 <?php
 /**
- * CollectionOfChannelReturnResponse
+ * CollectionChangesOfChannelProductChangesResponse
  *
  * PHP version 7.3
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * CollectionOfChannelReturnResponse Class Doc Comment
+ * CollectionChangesOfChannelProductChangesResponse Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
@@ -42,7 +42,7 @@ use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class CollectionChangesOfChannelProductChangesResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CollectionOfChannelReturnResponse';
+    protected static $openAPIModelName = 'CollectionChangesOfChannelProductChangesResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +59,10 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content' => '\ChannelEngine\Channel\ApiClient\Model\ChannelReturnResponse[]',
-        'count' => 'int',
-        'totalCount' => 'int',
-        'itemsPerPage' => 'int',
+        'content' => '\ChannelEngine\Channel\ApiClient\Model\ChannelProductChangesResponse',
+        'toBeCreatedTotalCount' => 'int',
+        'toBeUpdatedTotalCount' => 'int',
+        'toBeDeletedTotalCount' => 'int',
         'statusCode' => 'int',
         'requestId' => 'string',
         'logId' => 'string',
@@ -80,9 +80,9 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
       */
     protected static $openAPIFormats = [
         'content' => null,
-        'count' => 'int32',
-        'totalCount' => 'int32',
-        'itemsPerPage' => 'int32',
+        'toBeCreatedTotalCount' => 'int32',
+        'toBeUpdatedTotalCount' => 'int32',
+        'toBeDeletedTotalCount' => 'int32',
         'statusCode' => 'int32',
         'requestId' => null,
         'logId' => null,
@@ -119,9 +119,9 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
      */
     protected static $attributeMap = [
         'content' => 'Content',
-        'count' => 'Count',
-        'totalCount' => 'TotalCount',
-        'itemsPerPage' => 'ItemsPerPage',
+        'toBeCreatedTotalCount' => 'ToBeCreatedTotalCount',
+        'toBeUpdatedTotalCount' => 'ToBeUpdatedTotalCount',
+        'toBeDeletedTotalCount' => 'ToBeDeletedTotalCount',
         'statusCode' => 'StatusCode',
         'requestId' => 'RequestId',
         'logId' => 'LogId',
@@ -137,9 +137,9 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
      */
     protected static $setters = [
         'content' => 'setContent',
-        'count' => 'setCount',
-        'totalCount' => 'setTotalCount',
-        'itemsPerPage' => 'setItemsPerPage',
+        'toBeCreatedTotalCount' => 'setToBeCreatedTotalCount',
+        'toBeUpdatedTotalCount' => 'setToBeUpdatedTotalCount',
+        'toBeDeletedTotalCount' => 'setToBeDeletedTotalCount',
         'statusCode' => 'setStatusCode',
         'requestId' => 'setRequestId',
         'logId' => 'setLogId',
@@ -155,9 +155,9 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
      */
     protected static $getters = [
         'content' => 'getContent',
-        'count' => 'getCount',
-        'totalCount' => 'getTotalCount',
-        'itemsPerPage' => 'getItemsPerPage',
+        'toBeCreatedTotalCount' => 'getToBeCreatedTotalCount',
+        'toBeUpdatedTotalCount' => 'getToBeUpdatedTotalCount',
+        'toBeDeletedTotalCount' => 'getToBeDeletedTotalCount',
         'statusCode' => 'getStatusCode',
         'requestId' => 'getRequestId',
         'logId' => 'getLogId',
@@ -224,9 +224,9 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
     public function __construct(array $data = null)
     {
         $this->container['content'] = $data['content'] ?? null;
-        $this->container['count'] = $data['count'] ?? null;
-        $this->container['totalCount'] = $data['totalCount'] ?? null;
-        $this->container['itemsPerPage'] = $data['itemsPerPage'] ?? null;
+        $this->container['toBeCreatedTotalCount'] = $data['toBeCreatedTotalCount'] ?? null;
+        $this->container['toBeUpdatedTotalCount'] = $data['toBeUpdatedTotalCount'] ?? null;
+        $this->container['toBeDeletedTotalCount'] = $data['toBeDeletedTotalCount'] ?? null;
         $this->container['statusCode'] = $data['statusCode'] ?? null;
         $this->container['requestId'] = $data['requestId'] ?? null;
         $this->container['logId'] = $data['logId'] ?? null;
@@ -262,7 +262,7 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
     /**
      * Gets content
      *
-     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelReturnResponse[]|null
+     * @return \ChannelEngine\Channel\ApiClient\Model\ChannelProductChangesResponse|null
      */
     public function getContent()
     {
@@ -272,7 +272,7 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
     /**
      * Sets content
      *
-     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelReturnResponse[]|null $content content
+     * @param \ChannelEngine\Channel\ApiClient\Model\ChannelProductChangesResponse|null $content content
      *
      * @return self
      */
@@ -284,73 +284,73 @@ class CollectionOfChannelReturnResponse implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets count
+     * Gets toBeCreatedTotalCount
      *
      * @return int|null
      */
-    public function getCount()
+    public function getToBeCreatedTotalCount()
     {
-        return $this->container['count'];
+        return $this->container['toBeCreatedTotalCount'];
     }
 
     /**
-     * Sets count
+     * Sets toBeCreatedTotalCount
      *
-     * @param int|null $count count
+     * @param int|null $toBeCreatedTotalCount toBeCreatedTotalCount
      *
      * @return self
      */
-    public function setCount($count)
+    public function setToBeCreatedTotalCount($toBeCreatedTotalCount)
     {
-        $this->container['count'] = $count;
+        $this->container['toBeCreatedTotalCount'] = $toBeCreatedTotalCount;
 
         return $this;
     }
 
     /**
-     * Gets totalCount
+     * Gets toBeUpdatedTotalCount
      *
      * @return int|null
      */
-    public function getTotalCount()
+    public function getToBeUpdatedTotalCount()
     {
-        return $this->container['totalCount'];
+        return $this->container['toBeUpdatedTotalCount'];
     }
 
     /**
-     * Sets totalCount
+     * Sets toBeUpdatedTotalCount
      *
-     * @param int|null $totalCount totalCount
+     * @param int|null $toBeUpdatedTotalCount toBeUpdatedTotalCount
      *
      * @return self
      */
-    public function setTotalCount($totalCount)
+    public function setToBeUpdatedTotalCount($toBeUpdatedTotalCount)
     {
-        $this->container['totalCount'] = $totalCount;
+        $this->container['toBeUpdatedTotalCount'] = $toBeUpdatedTotalCount;
 
         return $this;
     }
 
     /**
-     * Gets itemsPerPage
+     * Gets toBeDeletedTotalCount
      *
      * @return int|null
      */
-    public function getItemsPerPage()
+    public function getToBeDeletedTotalCount()
     {
-        return $this->container['itemsPerPage'];
+        return $this->container['toBeDeletedTotalCount'];
     }
 
     /**
-     * Sets itemsPerPage
+     * Sets toBeDeletedTotalCount
      *
-     * @param int|null $itemsPerPage itemsPerPage
+     * @param int|null $toBeDeletedTotalCount toBeDeletedTotalCount
      *
      * @return self
      */
-    public function setItemsPerPage($itemsPerPage)
+    public function setToBeDeletedTotalCount($toBeDeletedTotalCount)
     {
-        $this->container['itemsPerPage'] = $itemsPerPage;
+        $this->container['toBeDeletedTotalCount'] = $toBeDeletedTotalCount;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * ExtraDataType
+ * ProductType
  *
  * PHP version 7.3
  *
@@ -30,25 +30,27 @@ namespace ChannelEngine\Channel\ApiClient\Model;
 use \ChannelEngine\Channel\ApiClient\ObjectSerializer;
 
 /**
- * ExtraDataType Class Doc Comment
+ * ProductType Class Doc Comment
  *
  * @category Class
  * @package  ChannelEngine\Channel\ApiClient
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExtraDataType
+class ProductType
 {
     /**
      * Possible values of this enum
      */
-    const TEXT = 'TEXT';
+    const SINGLE = 'SINGLE';
 
-    const NUMBER = 'NUMBER';
+    const PARENT = 'PARENT';
 
-    const URL = 'URL';
+    const CHILD = 'CHILD';
 
-    const IMAGEURL = 'IMAGEURL';
+    const GRANDPARENT = 'GRANDPARENT';
+
+    const BUNDLE = 'BUNDLE';
 
     /**
      * Gets allowable values of the enum
@@ -57,10 +59,11 @@ class ExtraDataType
     public static function getAllowableEnumValues()
     {
         return [
-            self::TEXT,
-            self::NUMBER,
-            self::URL,
-            self::IMAGEURL
+            self::SINGLE,
+            self::PARENT,
+            self::CHILD,
+            self::GRANDPARENT,
+            self::BUNDLE
         ];
     }
 }
