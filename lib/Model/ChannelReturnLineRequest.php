@@ -61,7 +61,8 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPITypes = [
         'channelProductNo' => 'string',
         'merchantProductNo' => 'string',
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'extraData' => 'array<string,string>'
     ];
 
     /**
@@ -74,7 +75,8 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $openAPIFormats = [
         'channelProductNo' => null,
         'merchantProductNo' => null,
-        'quantity' => 'int32'
+        'quantity' => 'int32',
+        'extraData' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $attributeMap = [
         'channelProductNo' => 'ChannelProductNo',
         'merchantProductNo' => 'MerchantProductNo',
-        'quantity' => 'Quantity'
+        'quantity' => 'Quantity',
+        'extraData' => 'ExtraData'
     ];
 
     /**
@@ -117,7 +120,8 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $setters = [
         'channelProductNo' => 'setChannelProductNo',
         'merchantProductNo' => 'setMerchantProductNo',
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'extraData' => 'setExtraData'
     ];
 
     /**
@@ -128,7 +132,8 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
     protected static $getters = [
         'channelProductNo' => 'getChannelProductNo',
         'merchantProductNo' => 'getMerchantProductNo',
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'extraData' => 'getExtraData'
     ];
 
     /**
@@ -191,6 +196,7 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
         $this->container['channelProductNo'] = $data['channelProductNo'] ?? null;
         $this->container['merchantProductNo'] = $data['merchantProductNo'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['extraData'] = $data['extraData'] ?? null;
     }
 
     /**
@@ -297,6 +303,30 @@ class ChannelReturnLineRequest implements ModelInterface, ArrayAccess, \JsonSeri
         }
 
         $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets extraData
+     *
+     * @return array<string,string>|null
+     */
+    public function getExtraData()
+    {
+        return $this->container['extraData'];
+    }
+
+    /**
+     * Sets extraData
+     *
+     * @param array<string,string>|null $extraData Extra data on the returnline. Each item must have an unqiue key
+     *
+     * @return self
+     */
+    public function setExtraData($extraData)
+    {
+        $this->container['extraData'] = $extraData;
 
         return $this;
     }

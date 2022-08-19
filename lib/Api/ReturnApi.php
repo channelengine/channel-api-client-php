@@ -452,15 +452,16 @@ class ReturnApi
      * @param  \ChannelEngine\Channel\ApiClient\Model\ReturnReason[] $reasons Return reason(s) to filter on. (optional)
      * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
      * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  bool $isAcknowledged Filters based on acknowledgements (optional)
      * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse
      */
-    public function returnGetDeclaredByMerchant($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
+    public function returnGetDeclaredByMerchant($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $isAcknowledged = null, $page = null)
     {
-        list($response) = $this->returnGetDeclaredByMerchantWithHttpInfo($statuses, $reasons, $fromDate, $toDate, $page);
+        list($response) = $this->returnGetDeclaredByMerchantWithHttpInfo($statuses, $reasons, $fromDate, $toDate, $isAcknowledged, $page);
         return $response;
     }
 
@@ -473,15 +474,16 @@ class ReturnApi
      * @param  \ChannelEngine\Channel\ApiClient\Model\ReturnReason[] $reasons Return reason(s) to filter on. (optional)
      * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
      * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  bool $isAcknowledged Filters based on acknowledgements (optional)
      * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \ChannelEngine\Channel\ApiClient\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function returnGetDeclaredByMerchantWithHttpInfo($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
+    public function returnGetDeclaredByMerchantWithHttpInfo($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $isAcknowledged = null, $page = null)
     {
-        $request = $this->returnGetDeclaredByMerchantRequest($statuses, $reasons, $fromDate, $toDate, $page);
+        $request = $this->returnGetDeclaredByMerchantRequest($statuses, $reasons, $fromDate, $toDate, $isAcknowledged, $page);
 
         try {
             $options = $this->createHttpClientOption();
@@ -570,14 +572,15 @@ class ReturnApi
      * @param  \ChannelEngine\Channel\ApiClient\Model\ReturnReason[] $reasons Return reason(s) to filter on. (optional)
      * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
      * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  bool $isAcknowledged Filters based on acknowledgements (optional)
      * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsync($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
+    public function returnGetDeclaredByMerchantAsync($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $isAcknowledged = null, $page = null)
     {
-        return $this->returnGetDeclaredByMerchantAsyncWithHttpInfo($statuses, $reasons, $fromDate, $toDate, $page)
+        return $this->returnGetDeclaredByMerchantAsyncWithHttpInfo($statuses, $reasons, $fromDate, $toDate, $isAcknowledged, $page)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -594,15 +597,16 @@ class ReturnApi
      * @param  \ChannelEngine\Channel\ApiClient\Model\ReturnReason[] $reasons Return reason(s) to filter on. (optional)
      * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
      * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  bool $isAcknowledged Filters based on acknowledgements (optional)
      * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
+    public function returnGetDeclaredByMerchantAsyncWithHttpInfo($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $isAcknowledged = null, $page = null)
     {
         $returnType = '\ChannelEngine\Channel\ApiClient\Model\CollectionOfChannelReturnResponse';
-        $request = $this->returnGetDeclaredByMerchantRequest($statuses, $reasons, $fromDate, $toDate, $page);
+        $request = $this->returnGetDeclaredByMerchantRequest($statuses, $reasons, $fromDate, $toDate, $isAcknowledged, $page);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -644,12 +648,13 @@ class ReturnApi
      * @param  \ChannelEngine\Channel\ApiClient\Model\ReturnReason[] $reasons Return reason(s) to filter on. (optional)
      * @param  \DateTime $fromDate Filter on the creation date, starting from this date. This date is inclusive. (optional)
      * @param  \DateTime $toDate Filter on the creation date, until this date. This date is exclusive. (optional)
+     * @param  bool $isAcknowledged Filters based on acknowledgements (optional)
      * @param  int $page The page to filter on. Starts at 1. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function returnGetDeclaredByMerchantRequest($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $page = null)
+    public function returnGetDeclaredByMerchantRequest($statuses = null, $reasons = null, $fromDate = null, $toDate = null, $isAcknowledged = null, $page = null)
     {
 
         $resourcePath = '/v2/returns/channel';
@@ -701,6 +706,17 @@ class ReturnApi
             }
             else {
                 $queryParams['toDate'] = $toDate;
+            }
+        }
+        // query params
+        if ($isAcknowledged !== null) {
+            if('form' === 'form' && is_array($isAcknowledged)) {
+                foreach($isAcknowledged as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['isAcknowledged'] = $isAcknowledged;
             }
         }
         // query params

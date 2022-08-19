@@ -72,7 +72,8 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'merchantComment' => 'string',
         'refundInclVat' => 'float',
         'refundExclVat' => 'float',
-        'returnDate' => '\DateTime'
+        'returnDate' => '\DateTime',
+        'extraData' => 'array<string,string>'
     ];
 
     /**
@@ -96,7 +97,8 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'merchantComment' => null,
         'refundInclVat' => 'decimal',
         'refundExclVat' => 'decimal',
-        'returnDate' => 'date-time'
+        'returnDate' => 'date-time',
+        'extraData' => null
     ];
 
     /**
@@ -139,7 +141,8 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'merchantComment' => 'MerchantComment',
         'refundInclVat' => 'RefundInclVat',
         'refundExclVat' => 'RefundExclVat',
-        'returnDate' => 'ReturnDate'
+        'returnDate' => 'ReturnDate',
+        'extraData' => 'ExtraData'
     ];
 
     /**
@@ -161,7 +164,8 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'merchantComment' => 'setMerchantComment',
         'refundInclVat' => 'setRefundInclVat',
         'refundExclVat' => 'setRefundExclVat',
-        'returnDate' => 'setReturnDate'
+        'returnDate' => 'setReturnDate',
+        'extraData' => 'setExtraData'
     ];
 
     /**
@@ -183,7 +187,8 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         'merchantComment' => 'getMerchantComment',
         'refundInclVat' => 'getRefundInclVat',
         'refundExclVat' => 'getRefundExclVat',
-        'returnDate' => 'getReturnDate'
+        'returnDate' => 'getReturnDate',
+        'extraData' => 'getExtraData'
     ];
 
     /**
@@ -257,6 +262,7 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
         $this->container['refundInclVat'] = $data['refundInclVat'] ?? null;
         $this->container['refundExclVat'] = $data['refundExclVat'] ?? null;
         $this->container['returnDate'] = $data['returnDate'] ?? null;
+        $this->container['extraData'] = $data['extraData'] ?? null;
     }
 
     /**
@@ -678,6 +684,30 @@ class ChannelReturnRequest implements ModelInterface, ArrayAccess, \JsonSerializ
     public function setReturnDate($returnDate)
     {
         $this->container['returnDate'] = $returnDate;
+
+        return $this;
+    }
+
+    /**
+     * Gets extraData
+     *
+     * @return array<string,string>|null
+     */
+    public function getExtraData()
+    {
+        return $this->container['extraData'];
+    }
+
+    /**
+     * Sets extraData
+     *
+     * @param array<string,string>|null $extraData Extra data on the return. Each item must have an unqiue key
+     *
+     * @return self
+     */
+    public function setExtraData($extraData)
+    {
+        $this->container['extraData'] = $extraData;
 
         return $this;
     }

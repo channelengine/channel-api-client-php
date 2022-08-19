@@ -65,7 +65,8 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         'rejectedQuantity' => 'int',
         'orderLine' => '\ChannelEngine\Channel\ApiClient\Model\ChannelOrderLineResponse',
         'shipmentStatus' => '\ChannelEngine\Channel\ApiClient\Model\ShipmentLineStatus',
-        'quantity' => 'int'
+        'quantity' => 'int',
+        'extraData' => 'array<string,string>'
     ];
 
     /**
@@ -82,7 +83,8 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         'rejectedQuantity' => 'int32',
         'orderLine' => null,
         'shipmentStatus' => null,
-        'quantity' => 'int32'
+        'quantity' => 'int32',
+        'extraData' => null
     ];
 
     /**
@@ -118,7 +120,8 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         'rejectedQuantity' => 'RejectedQuantity',
         'orderLine' => 'OrderLine',
         'shipmentStatus' => 'ShipmentStatus',
-        'quantity' => 'Quantity'
+        'quantity' => 'Quantity',
+        'extraData' => 'ExtraData'
     ];
 
     /**
@@ -133,7 +136,8 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         'rejectedQuantity' => 'setRejectedQuantity',
         'orderLine' => 'setOrderLine',
         'shipmentStatus' => 'setShipmentStatus',
-        'quantity' => 'setQuantity'
+        'quantity' => 'setQuantity',
+        'extraData' => 'setExtraData'
     ];
 
     /**
@@ -148,7 +152,8 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         'rejectedQuantity' => 'getRejectedQuantity',
         'orderLine' => 'getOrderLine',
         'shipmentStatus' => 'getShipmentStatus',
-        'quantity' => 'getQuantity'
+        'quantity' => 'getQuantity',
+        'extraData' => 'getExtraData'
     ];
 
     /**
@@ -215,6 +220,7 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         $this->container['orderLine'] = $data['orderLine'] ?? null;
         $this->container['shipmentStatus'] = $data['shipmentStatus'] ?? null;
         $this->container['quantity'] = $data['quantity'] ?? null;
+        $this->container['extraData'] = $data['extraData'] ?? null;
     }
 
     /**
@@ -420,6 +426,30 @@ class ChannelReturnLineResponse implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['quantity'] = $quantity;
+
+        return $this;
+    }
+
+    /**
+     * Gets extraData
+     *
+     * @return array<string,string>|null
+     */
+    public function getExtraData()
+    {
+        return $this->container['extraData'];
+    }
+
+    /**
+     * Sets extraData
+     *
+     * @param array<string,string>|null $extraData Extra data on the returnline. Each item must have an unqiue key
+     *
+     * @return self
+     */
+    public function setExtraData($extraData)
+    {
+        $this->container['extraData'] = $extraData;
 
         return $this;
     }
